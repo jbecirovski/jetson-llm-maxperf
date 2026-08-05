@@ -2,16 +2,18 @@
 
 Get the maximum LLM tokens/sec out of an NVIDIA Jetson board, and prove it.
 
-On the same board, the same llama.cpp goes from 1.8 to 52 tok/s depending on
-the build, quantization, power mode and board variant (a 29x gap, see sources
-below). This repo gives you, in order:
+On one AGX Orin 64GB, the same 8B model generates anywhere between 8.1 and
+43.0 tok/s in our own measurements - a 5.3x gap driven entirely by power
+mode, quantization and decoding strategy (the JetPack version moves it by
+1%). Published figures spread even wider, from 1.8 to a claimed 52 tok/s
+(see sources below). This repo gives you, in order:
 
 1. a script that puts the board in its maximum-performance configuration,
 2. the two install paths for a fast LLM runtime (containers or native build),
 3. a script that captures the full configuration next to your results, so your
    numbers are comparable and reproducible.
 
-![Bar chart of this repo's measured generation throughput on AGX Orin 64GB: Llama 3.1 8B Q4_K_M at 26.8 tok/s under JetPack 6.0 and 27.1 under 6.2.1, IQ4_XS at 34.5, and speculative decoding with a 1B draft at 43.0 - the only bar crossing the dashed single-stream bandwidth ceiling of 41.6 tok/s](assets/runtime-29x.png)
+![Bar chart of this repo's measured generation throughput on AGX Orin 64GB, all with Llama 3.1 8B: 8.1 tok/s in 30W power mode with stock clocks, 26.8 in MAXN with locked clocks under JetPack 6.0, 27.1 under JetPack 6.2.1, 34.5 with the smaller IQ4_XS quant, and 43.0 with speculative decoding using a 1B draft - the only bar crossing the dashed single-stream bandwidth ceiling of 41.6 tok/s](assets/runtime-29x.png)
 
 Target platform: AGX Orin under JetPack 6.2 (L4T r36.4.x). Figures below are
 from the sources at the bottom.
@@ -26,12 +28,15 @@ sudo ./maximize-perf.sh --fan  # same, plus max fan speed
 What it does, in the order required by NVIDIA's docs:
 
 1. `nvpmodel -m <MAXN id>` - switches to the highest power mode (the id is
-   read from `/etc/nvpmodel.conf`, it varies across boards). Power mode and
-   board variant together account for up to 2.5x throughput (30W on a 32GB
-   board vs MAXN on a 64GB, see sources).
+   read from `/etc/nvpmodel.conf`, it varies across boards). Measured on our
+   board: **3.3x generation throughput** between 30W and MAXN (see Measured
+   results). Note: switching between modes with different online-core counts
+   requires a reboot, and nvpmodel prompts for it - the script fails cleanly
+   instead of hanging when run non-interactively.
 2. `jetson_clocks` - locks CPU/GPU/EMC clocks to their maximum. Must run
    *after* nvpmodel: once clocks are locked, changing the power mode requires
-   a reboot.
+   a reboot. Measured effect on sustained throughput: ~+1% - its real value
+   is measurement stability (see Measured results).
 
 ## Step 2 - Install a fast runtime
 
@@ -153,6 +158,28 @@ generation (the number that matters for an interactive agent).
 | 6.0 (CUDA 12.2) | IQ4_XS (4.13 GiB) | 1122.1 ± 30.3 | 33.5 ± 0.9 | [dir](benchmarks/2026-08-05-agx-orin-64gb-jetpack-6.0-iq4xs/) |
 | 6.2.1 (CUDA 12.6) | Q4_K_M (4.58 GiB) | 1001.7 ± 8.7 | 27.1 ± 0.0 | [dir](benchmarks/2026-08-05-agx-orin-64gb-jetpack-6.2.1/) |
 | 6.2.1 (CUDA 12.6) | IQ4_XS (4.13 GiB) | 1195.0 ± 12.7 | 34.5 ± 0.1 | [dir](benchmarks/2026-08-05-agx-orin-64gb-jetpack-6.2.1-iq4xs/) |
+
+### What Step 1 actually buys you, decomposed
+
+Same board, same JetPack 6.2.1, same build, same Q4_K_M model - only the
+power settings change (each step measured after a fresh reboot):
+
+| Power configuration | pp512 tok/s | tg128 tok/s | Proof |
+| --- | --- | --- | --- |
+| 30W mode, stock clocks | 249.6 ± 0.7 | 8.1 ± 0.1 | [dir](benchmarks/2026-08-05-agx-orin-64gb-jetpack-6.2.1-30w-stock/) |
+| MAXN mode, stock clocks | 992.4 ± 10.9 | 26.9 ± 0.2 | [dir](benchmarks/2026-08-05-agx-orin-64gb-jetpack-6.2.1-maxn-stock-clocks/) |
+| MAXN + `jetson_clocks` | 1002.2 ± 8.8 | 27.1 ± 0.0 | [dir](benchmarks/2026-08-05-agx-orin-64gb-jetpack-6.2.1-maxn-locked-clocks/) |
+
+Two findings worth more than the folklore:
+
+- **The power mode is the whole story: 3.3x on generation** (8.1 → 26.9),
+  4x on prefill. This is on the *same* 64GB board - bigger than the 2.5x from
+  the GitHub thread, which mixed power mode with a board-variant change.
+- **Locking clocks barely moves sustained throughput (+0.7%)** - under
+  continuous load, DVFS ramps the clocks up by itself. What `jetson_clocks`
+  actually buys is *stability*: the tg128 standard deviation drops from ±0.16
+  to ±0.01. Lock the clocks so your numbers are reproducible, not to make
+  them bigger.
 
 ### Why generation is stuck around 30 tok/s: the bandwidth ceiling
 
