@@ -1,0 +1,2 @@
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 62840 MiB):
+  Device 0: Orin, compute capability 8.7, VMM: yes, VRAM: 62840 MiB
