@@ -1,0 +1,1 @@
+BFCL v3 parallel (ShishirPatil/gorilla, Apache-2.0), entree #2 (id=parallel_1). https://raw.githubusercontent.com/ShishirPatil/gorilla/main/berkeley-function-call-leaderboard/bfcl_eval/data/BFCL_v4_parallel.json

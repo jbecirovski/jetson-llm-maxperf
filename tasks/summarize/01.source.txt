@@ -1,0 +1,1 @@
+CNN/DailyMail 3.0.0 (abisee/cnn_dailymail, test split), offset=0, id=f001ec5c4704938247d27a44948eebb37ae98d01, article tronque a 5000 caracteres. https://datasets-server.huggingface.co/rows?dataset=abisee%2Fcnn_dailymail&config=3.0.0&split=test&offset=0&length=10

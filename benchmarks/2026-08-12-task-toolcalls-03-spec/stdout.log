@@ -1,0 +1,43 @@
+
+
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+You are a function-calling AI. You are given a list of available functions. Respond ONLY with a JSON array of function calls, each of the form {"name": <function name>, "arguments": {<parameter>: <value>}}. Make every call needed to fully answer the request.
+
+Available functions:
+[
+  {
+    "name": "calculate_resistance",
+    "description": "Calculate the resistance of a wire using resistivity, length, and cross-sectional area.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "length": {
+          "type": "integer",
+          "description": "The length of the wire in meters."
+        },
+        "area": {
+          "type": "float",
+          "description": "The cross-sectional area of the wire in square meters."
+        },
+        "resistivity": {
+          "type": "string",
+          "description": "Resistivity of the material (Default: 'copper'). Allowed values: 'copper', 'aluminum'"
+        }
+      },
+      "required": [
+        "length",
+        "area"
+      ]
+    }
+  }
+]<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Calculate the resistance of a wire with a length of 5m and cross sectional area 0.01m² with resistivity of copper and aluminum<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+[
+  {"name": "calculate_resistance", "arguments": {"length": 5, "area": 0.01, "resistivity": "copper"}},
+  {"name": "calculate_resistance", "arguments": {"length": 5, "area": 0.01, "resistivity": "aluminum"}}
+]<|eot_id|><|start_header_id|>assistant
+
+
+

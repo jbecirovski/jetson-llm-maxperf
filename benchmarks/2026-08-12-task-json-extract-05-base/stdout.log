@@ -1,0 +1,28 @@
+
+
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+You are a precise information extraction engine. You output only valid JSON.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Read the following news article and extract its content into a single JSON object with exactly this schema:
+{"headline": string, "main_event": string, "people": [{"name": string, "role": string}], "organizations": [string], "locations": [string], "dates": [string], "numbers": [{"value": string, "what_it_measures": string}], "quotes": [{"speaker": string, "quote": string}]}
+Output only valid JSON, no commentary.
+
+Article:
+(CNN)For the first time in eight years, a TV legend returned to doing what he does best. Contestants told to "come on down!" on the April 1 edition of "The Price Is Right" encountered not host Drew Carey but another familiar face in charge of the proceedings. Instead, there was Bob Barker, who hosted the TV game show for 35 years before stepping down in 2007. Looking spry at 91, Barker handled the first price-guessing game of the show, the classic "Lucky Seven," before turning hosting duties over to Carey, who finished up. Despite being away from the show for most of the past eight years, Barker didn't seem to miss a beat.<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+{
+  "headline": "Bob Barker Returns to Host 'The Price Is Right'",
+  "main_event": "Bob Barker returns to host 'The Price Is Right' after an eight-year absence.",
+  "people": [
+    {"name": "Bob Barker", "role": "Host"},
+    {"name": "Drew Carey", "role": "Host"}
+  ],
+  "organizations": ["CNN", "The Price Is Right"],
+  "locations": [],
+  "dates": ["April 1"],
+  "numbers": [],
+  "quotes": []
+}<|eot_id|>
+
+
+

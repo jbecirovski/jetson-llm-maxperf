@@ -11,9 +11,12 @@ mode, quantization and decoding strategy (the JetPack version moves it by
 1. a script that puts the board in its maximum-performance configuration,
 2. the two install paths for a fast LLM runtime (containers or native build),
 3. a script that captures the full configuration next to your results, so your
-   numbers are comparable and reproducible.
+   numbers are comparable and reproducible,
+4. a per-task speculative decoding test bench that measures how much a draft
+   model buys you on YOUR workload - and whether the output really stays
+   identical.
 
-![Bar chart of this repo's measured generation throughput on AGX Orin 64GB, all with Llama 3.1 8B: 8.1 tok/s in 30W power mode with stock clocks, 26.8 in MAXN with locked clocks under JetPack 6.0, 27.1 under JetPack 6.2.1, 34.5 with the smaller IQ4_XS quant, and 43.0 with speculative decoding using a 1B draft - the only bar crossing the dashed single-stream bandwidth ceiling of 41.6 tok/s](assets/runtime-29x.png)
+![3D bar chart of this repo's measured generation throughput on AGX Orin 64GB, all with Llama 3.1 8B: 8.1 tok/s in 30W power mode with stock clocks, 26.8 in MAXN with locked clocks under JetPack 6.0, 27.1 under JetPack 6.2.1, 34.5 with the smaller IQ4_XS quant, and 43.0 with speculative decoding using a 1B draft - the only full-green bar escaping the shaded zone of the 41.6 tok/s single-stream bandwidth ceiling, marked under the axis](assets/runtime-29x.png)
 
 Target platform: AGX Orin under JetPack 6.2 (L4T r36.4.x). Figures below are
 from the sources at the bottom.
@@ -141,6 +144,52 @@ Captured fields:
 Any missing field (command unavailable, no sudo rights) is reported as `null`
 instead of failing the capture.
 
+## Step 4 - Measure how the speculative gain depends on YOUR task
+
+`benchmark-speculative-tasks.sh` is the test bench behind a question the
+speculative decoding result leaves open: is the +59% a property of the
+technique, or of the task it ran on? It answers by running a fixed campaign
+of 51 wrapped runs (~35 min unattended):
+
+- **5 task families x 5 prompts**, stored in `tasks/` and sampled from the
+  same public corpora the speculative decoding literature benchmarks on:
+  tool calls (BFCL v4), Python code (HumanEval), JSON extraction and
+  summarization (CNN/DailyMail), open-ended writing (MT-Bench). Corpora,
+  licenses, sampling rule and prompt format: [tasks/README.md](tasks/README.md).
+- **Paired runs, one variable.** For every prompt, the baseline and the
+  speculative run use the *same* `llama-speculative` binary with the same
+  flags; only `--spec-draft-n-max` changes (0 = drafting fully disabled,
+  8 = the crest found above). Same code path, same overhead - so the
+  per-task speedups compare like with like. This paired baseline (~21.7
+  tok/s) is NOT the llama-bench tg128 (27.1): different instrument, do not
+  mix them.
+- **Proof per run**: every run goes through the Step 3 wrapper and lands in
+  `benchmarks/<date>-task-<family>-<nn>-{base,spec}/`. Existing directories
+  are skipped, so an interrupted campaign resumes where it stopped.
+- **Thermal drift check**: the first speculative run is replayed at the end
+  (`-driftcheck` suffix). If it moved, the session throttled and the numbers
+  are suspect.
+
+```bash
+# Prerequisites: Step 1 applied, Path B build plus the speculative example:
+cmake --build build -j12 --target llama-speculative
+
+# The 1B draft model next to the 8B target (public GGUF, ~0.8 GB):
+wget -c -O ~/models/Llama-3.2-1B-Instruct-Q4_K_M.gguf \
+  https://huggingface.co/bartowski/Llama-3.2-1B-Instruct-GGUF/resolve/main/Llama-3.2-1B-Instruct-Q4_K_M.gguf
+
+# Run the campaign (from the repo root, next to capture-jetson-env.sh)
+./benchmark-speculative-tasks.sh
+
+# Paths are overridable if your layout differs:
+LLAMA_BIN=~/llama.cpp/build/bin MODEL=~/models/... DRAFT=~/models/... \
+  ./benchmark-speculative-tasks.sh
+```
+
+On completion the script prints one-liners to extract acceptance rates,
+tok/s and output diffs from the proof directories. Results from our board:
+see "The gain is a property of the task" below.
+
 ## Measured results
 
 All runs below share the same setup: AGX Orin 64GB Developer Kit, MAXN power
@@ -220,8 +269,10 @@ efficiency. This one formula explains most of the table:
 
 A small draft model (Llama 3.2 1B, 0.8 GB) proposes several tokens; the 8B
 verifies the whole batch in a *single* weight pass. The "one token = one
-full read" rule no longer binds, and the output stays mathematically
-identical to the 8B alone. Measured on a technical prompt (JetPack 6.2.1,
+full read" rule no longer binds, and by construction the 8B only keeps
+tokens it would have picked itself - identical output in exact arithmetic
+(see the per-task campaign below for what batched floating-point does to
+that guarantee in practice). Measured on a technical prompt (JetPack 6.2.1,
 Q4_K_M target, `llama-speculative`):
 
 | Draft length (`--spec-draft-n-max`) | Acceptance | Decode tok/s | Proof |
@@ -234,9 +285,40 @@ Q4_K_M target, `llama-speculative`):
 **+59% over the baseline, above the naive single-stream ceiling.** Two honest
 caveats: draft length is a crest, not a slope - drafting 16 tokens collapses
 acceptance and destroys the gain - and the speedup depends on how predictable
-the generated text is (code and technical prose accept well, creative text
-less so). Which is exactly why every number here ships with its full
-environment capture.
+the generated text is. That second caveat stopped being folklore on
+2026-08-12: it is measured properly below.
+
+### The gain is a property of the task (campaign of 2026-08-12)
+
+Step 4 campaign: same frozen setup, `--spec-draft-n-max 8`, temp 0, `-n 256`,
+5 prompts per task family, paired against the same binary with drafting
+disabled. Means over the 5 prompts; proof directories under
+`benchmarks/2026-08-12-task-*` (51 runs, all exit 0, drift check -1.6%).
+
+![3D bar chart of measured generation throughput on NVIDIA Jetson AGX Orin 64GB, Llama 3.1 8B Q4_K_M with a 1B draft under llama.cpp, temp 0, mean of 5 prompts per task. Bottom gray bar: 21.7 tokens per second without draft, same binary. Light green bars below the 41.6 bandwidth ceiling: document summarization 37.4 (x1.75) and open-ended writing 38.6 (x1.75). Full green bars above the ceiling: JSON extraction 51.1 (x2.39), Python code generation 60.2 (x2.75), tool calls on a strict schema 61.5 (x2.84). The area below the 41.6 tok/s ceiling is shaded light gray with a marker under the axis, draft acceptance rate under each task label.](assets/speculative-by-task.png)
+
+| Task family (corpus) | Acceptance | Base tok/s | Spec tok/s | Speedup | Identical output |
+| --- | --- | --- | --- | --- | --- |
+| Tool calls, strict schema (BFCL v4) | 87.1% | 21.6 | 61.5 | **2.84x** | 5/5 |
+| Python code generation (HumanEval) | 81.6% | 21.9 | 60.2 | 2.75x | 5/5 |
+| JSON extraction (CNN/DailyMail) | 65.8% | 21.4 | 51.1 | 2.39x | 3/5 |
+| Document summarization (CNN/DailyMail) | 44.7% | 21.3 | 37.4 | 1.75x | 0/5 |
+| Open-ended writing (MT-Bench) | 45.4% | 22.0 | 38.6 | 1.75x | 1/5 |
+
+Three findings:
+
+- **The gain tracks output predictability** - from 1.75x to 2.84x at strictly
+  identical config. Constrained formats (tool calls, code, JSON) are exactly
+  what an embedded agent generates, and they sit at the top.
+- **Nothing collapsed at draft length 8**: even open-ended writing gains 75%.
+  With a same-family 1B draft, the collapse lives in the draft length (16,
+  table above), not in the task.
+- **"Identical output" has fine print.** At temp 0, 11 of 25 pairs diverge
+  mid-text - all in prose (summarization 5/5, writing 4/5, JSON extraction
+  2/5); code and tool calls are 10/10 identical. Working hypothesis, not yet
+  verified mechanically: batched validation changes floating-point rounding,
+  and near-ties between candidate tokens flip. The diff tolerates one known
+  artifact: the speculative loop overruns EOS by the rest of its final burst.
 
 ## Known limitations
 

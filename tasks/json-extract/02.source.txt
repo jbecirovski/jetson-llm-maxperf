@@ -1,0 +1,1 @@
+CNN/DailyMail 3.0.0 (abisee/cnn_dailymail, test split), offset=6, id=e2706dce6cf26bc61b082438188fdb6e130d9e40, article tronque a 5000 caracteres, schema d'extraction propre au banc (categorie absente des benchmarks publies). https://datasets-server.huggingface.co/rows?dataset=abisee%2Fcnn_dailymail&config=3.0.0&split=test&offset=0&length=10

@@ -1,0 +1,39 @@
+
+
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+You are a function-calling AI. You are given a list of available functions. Respond ONLY with a JSON array of function calls, each of the form {"name": <function name>, "arguments": {<parameter>: <value>}}. Make every call needed to fully answer the request.
+
+Available functions:
+[
+  {
+    "name": "calculate_bmi",
+    "description": "Calculate body mass index for a person based on their weight and height.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "height": {
+          "type": "float",
+          "description": "The height of the person in feet."
+        },
+        "weight": {
+          "type": "integer",
+          "description": "The weight of the person in kilograms."
+        }
+      },
+      "required": [
+        "height",
+        "weight"
+      ]
+    }
+  }
+]<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Calculate the body mass index for a person who is 6 feet tall and weighs 80 kg, also for a person who is 5.6 feet and weighs 60 kg.<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+[
+  {"name": "calculate_bmi", "arguments": {"height": 6.0, "weight": 80}},
+  {"name": "calculate_bmi", "arguments": {"height": 5.6, "weight": 60}}
+]<|eot_id|><|start_header_id|>assistant
+
+
+

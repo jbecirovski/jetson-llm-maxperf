@@ -1,0 +1,1 @@
+/home/user/llama.cpp/build/bin/llama-speculative -m /home/user/models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf -md /home/user/models/Llama-3.2-1B-Instruct-Q4_K_M.gguf -f tasks/toolcalls/05.txt -n 256 -c 4096 -ngl 99 -ngld 99 --temp 0 --spec-draft-n-max 0 
