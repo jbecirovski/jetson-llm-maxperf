@@ -1,0 +1,23 @@
+
+
+<|begin_of_text|>Explain, in plain prose for a technical reader, how a mobile robot plans a path from one point to another in a warehouse: sensing, mapping, global planning, local avoidance, and what happens when an obstacle appears. Be concrete and methodical. Here is a simple example of a warehouse layout:
+```
+  +---------------+
+  |  A  |  B  |  C  |
+  +---------------+
+  |  |  |  |
+  |  |  |  |
+  |  |  |  |
+  +---------------+
+  |  D  |  E  |  F  |
+  +---------------+
+```
+The robot starts at point A and wants to go to point F. The robot has a laser range finder that can see up to 10 meters in all directions. The robot can move at 1 meter per second. The robot has a map of the warehouse that is updated in real time. The robot can also sense its own position and orientation.
+
+Here is a step-by-step explanation of how the robot plans a path from point A to point F:
+
+1.  **Sensing**: The robot uses its laser range finder to scan its surroundings and detect any obstacles within a 10-meter radius. The robot also uses its sensors to determine its own position and orientation.
+2.  **Mapping**: The robot updates its map of the warehouse in real time, incorporating the new sensor data. The map is a 2D representation of the warehouse, with obstacles and free space
+
+
+

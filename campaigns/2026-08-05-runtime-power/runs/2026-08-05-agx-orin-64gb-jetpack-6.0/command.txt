@@ -1,0 +1,1 @@
+/home/user/llama.cpp/build/bin/llama-bench -m /home/user/models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf -ngl 99 

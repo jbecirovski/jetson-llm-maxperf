@@ -1,0 +1,824 @@
+=== benchmarks/2026-08-12-energy-maxn-q4km-1 ===
+
+
+<|begin_of_text|>Explain, in plain prose for a technical reader, how a mobile robot plans a path from one point to another in a warehouse: sensing, mapping, global planning, local avoidance, and what happens when an obstacle appears. Be concrete and methodical. Here is a simple example of a warehouse layout:
+```
+  +---------------+
+  |  A  |  B  |  C  |
+  +---------------+
+  |  |  |  |
+  |  |  |  |
+  |  |  |  |
+  +---------------+
+  |  D  |  E  |  F  |
+  +---------------+
+```
+The robot starts at point A and wants to go to point F. The robot has a laser range finder that can see up to 10 meters in all directions. The robot can move at 1 meter per second. The robot has a map of the warehouse that is updated in real time. The robot can also sense its own position and orientation.
+
+Here is a step-by-step explanation of how the robot plans a path from point A to point F:
+
+1.  **Sensing**: The robot uses its laser range finder to scan its surroundings and detect any obstacles within a 10-meter radius. The robot also uses its sensors to determine its own position and orientation.
+2.  **Mapping**: The robot updates its map of the warehouse in real time, incorporating the new sensor data. The map is a 2D representation of the warehouse, with obstacles and free space
+
+0.16.643.646 I encoded   52 tokens in    0.100 seconds, speed:  521.774 t/s
+0.16.643.649 I decoded  257 tokens in   11.680 seconds, speed:   22.003 t/s
+0.16.643.650 I 
+0.16.643.651 I n_draft   = 0
+0.16.643.651 I n_predict = 257
+0.16.643.652 I n_drafted = 0
+0.16.643.652 I n_accept  = 0
+0.16.643.653 I accept    = nan%
+0.16.643.654 I 
+0.16.643.654 I draft:
+
+0.16.643.667 I 
+0.16.643.667 I target:
+
+0.16.643.674 I common_perf_print:    sampling time =      56.36 ms
+0.16.643.675 I common_perf_print:    samplers time =      25.67 ms /   257 tokens
+0.16.643.677 I common_perf_print:        load time =    2409.02 ms
+0.16.643.678 I common_perf_print: prompt eval time =     132.68 ms /    52 tokens (    2.55 ms per token,   391.91 tokens per second)
+0.16.643.680 I common_perf_print:        eval time =   11376.90 ms /   256 runs   (   44.44 ms per token,    22.50 tokens per second)
+0.16.643.681 I common_perf_print:       total time =   13379.00 ms /   308 tokens
+0.16.643.682 I common_perf_print: unaccounted time =    1813.07 ms /  13.6 %      (total - sampling - prompt eval - eval) / (total)
+0.16.643.683 I common_perf_print:    graphs reused =        255
+
+
+run saved in bench-run-20260813T003928Z (env.json, command.txt, stdout.log, stderr.log, exit-code.txt)
+2026-08-12-energy-maxn-q4km-1: 22.0 tok/s, 47.83 W decode, 2.174 J/tok (604 Wh/Mtok), idle 11.16/11.16 W
+=== benchmarks/2026-08-12-energy-maxn-q4km-2 ===
+
+
+<|begin_of_text|>Explain, in plain prose for a technical reader, how a mobile robot plans a path from one point to another in a warehouse: sensing, mapping, global planning, local avoidance, and what happens when an obstacle appears. Be concrete and methodical. Here is a simple example of a warehouse layout:
+```
+  +---------------+
+  |  A  |  B  |  C  |
+  +---------------+
+  |  |  |  |
+  |  |  |  |
+  |  |  |  |
+  +---------------+
+  |  D  |  E  |  F  |
+  +---------------+
+```
+The robot starts at point A and wants to go to point F. The robot has a laser range finder that can see up to 10 meters in all directions. The robot can move at 1 meter per second. The robot has a map of the warehouse that is updated in real time. The robot can also sense its own position and orientation.
+
+Here is a step-by-step explanation of how the robot plans a path from point A to point F:
+
+1.  **Sensing**: The robot uses its laser range finder to scan its surroundings and detect any obstacles within a 10-meter radius. The robot also uses its sensors to determine its own position and orientation.
+2.  **Mapping**: The robot updates its map of the warehouse in real time, incorporating the new sensor data. The map is a 2D representation of the warehouse, with obstacles and free space
+
+0.16.626.784 I encoded   52 tokens in    0.100 seconds, speed:  522.393 t/s
+0.16.626.789 I decoded  257 tokens in   11.684 seconds, speed:   21.996 t/s
+0.16.626.789 I 
+0.16.626.789 I n_draft   = 0
+0.16.626.790 I n_predict = 257
+0.16.626.790 I n_drafted = 0
+0.16.626.792 I n_accept  = 0
+0.16.626.793 I accept    = nan%
+0.16.626.793 I 
+0.16.626.793 I draft:
+
+0.16.626.802 I 
+0.16.626.803 I target:
+
+0.16.626.809 I common_perf_print:    sampling time =      55.54 ms
+0.16.626.809 I common_perf_print:    samplers time =      25.12 ms /   257 tokens
+0.16.626.812 I common_perf_print:        load time =    2417.34 ms
+0.16.626.813 I common_perf_print: prompt eval time =     132.91 ms /    52 tokens (    2.56 ms per token,   391.24 tokens per second)
+0.16.626.815 I common_perf_print:        eval time =   11379.16 ms /   256 runs   (   44.45 ms per token,    22.50 tokens per second)
+0.16.626.816 I common_perf_print:       total time =   13359.90 ms /   308 tokens
+0.16.626.817 I common_perf_print: unaccounted time =    1792.30 ms /  13.4 %      (total - sampling - prompt eval - eval) / (total)
+0.16.626.817 I common_perf_print:    graphs reused =        255
+
+
+run saved in bench-run-20260813T004218Z (env.json, command.txt, stdout.log, stderr.log, exit-code.txt)
+2026-08-12-energy-maxn-q4km-2: 22.0 tok/s, 47.40 W decode, 2.155 J/tok (599 Wh/Mtok), idle 11.16/11.16 W
+=== benchmarks/2026-08-12-energy-maxn-q4km-3 ===
+
+
+<|begin_of_text|>Explain, in plain prose for a technical reader, how a mobile robot plans a path from one point to another in a warehouse: sensing, mapping, global planning, local avoidance, and what happens when an obstacle appears. Be concrete and methodical. Here is a simple example of a warehouse layout:
+```
+  +---------------+
+  |  A  |  B  |  C  |
+  +---------------+
+  |  |  |  |
+  |  |  |  |
+  |  |  |  |
+  +---------------+
+  |  D  |  E  |  F  |
+  +---------------+
+```
+The robot starts at point A and wants to go to point F. The robot has a laser range finder that can see up to 10 meters in all directions. The robot can move at 1 meter per second. The robot has a map of the warehouse that is updated in real time. The robot can also sense its own position and orientation.
+
+Here is a step-by-step explanation of how the robot plans a path from point A to point F:
+
+1.  **Sensing**: The robot uses its laser range finder to scan its surroundings and detect any obstacles within a 10-meter radius. The robot also uses its sensors to determine its own position and orientation.
+2.  **Mapping**: The robot updates its map of the warehouse in real time, incorporating the new sensor data. The map is a 2D representation of the warehouse, with obstacles and free space
+
+0.16.609.182 I encoded   52 tokens in    0.099 seconds, speed:  527.624 t/s
+0.16.609.186 I decoded  257 tokens in   11.682 seconds, speed:   22.000 t/s
+0.16.609.186 I 
+0.16.609.187 I n_draft   = 0
+0.16.609.188 I n_predict = 257
+0.16.609.189 I n_drafted = 0
+0.16.609.190 I n_accept  = 0
+0.16.609.190 I accept    = nan%
+0.16.609.191 I 
+0.16.609.191 I draft:
+
+0.16.609.202 I 
+0.16.609.203 I target:
+
+0.16.609.210 I common_perf_print:    sampling time =      54.91 ms
+0.16.609.211 I common_perf_print:    samplers time =      24.84 ms /   257 tokens
+0.16.609.213 I common_perf_print:        load time =    2422.83 ms
+0.16.609.214 I common_perf_print: prompt eval time =     132.68 ms /    52 tokens (    2.55 ms per token,   391.94 tokens per second)
+0.16.609.216 I common_perf_print:        eval time =   11378.30 ms /   256 runs   (   44.45 ms per token,    22.50 tokens per second)
+0.16.609.217 I common_perf_print:       total time =   13343.78 ms /   308 tokens
+0.16.609.218 I common_perf_print: unaccounted time =    1777.90 ms /  13.3 %      (total - sampling - prompt eval - eval) / (total)
+0.16.609.218 I common_perf_print:    graphs reused =        255
+
+
+run saved in bench-run-20260813T004508Z (env.json, command.txt, stdout.log, stderr.log, exit-code.txt)
+2026-08-12-energy-maxn-q4km-3: 22.0 tok/s, 47.54 W decode, 2.161 J/tok (600 Wh/Mtok), idle 11.16/11.16 W
+=== benchmarks/2026-08-12-energy-maxn-q4km-4 ===
+
+
+<|begin_of_text|>Explain, in plain prose for a technical reader, how a mobile robot plans a path from one point to another in a warehouse: sensing, mapping, global planning, local avoidance, and what happens when an obstacle appears. Be concrete and methodical. Here is a simple example of a warehouse layout:
+```
+  +---------------+
+  |  A  |  B  |  C  |
+  +---------------+
+  |  |  |  |
+  |  |  |  |
+  |  |  |  |
+  +---------------+
+  |  D  |  E  |  F  |
+  +---------------+
+```
+The robot starts at point A and wants to go to point F. The robot has a laser range finder that can see up to 10 meters in all directions. The robot can move at 1 meter per second. The robot has a map of the warehouse that is updated in real time. The robot can also sense its own position and orientation.
+
+Here is a step-by-step explanation of how the robot plans a path from point A to point F:
+
+1.  **Sensing**: The robot uses its laser range finder to scan its surroundings and detect any obstacles within a 10-meter radius. The robot also uses its sensors to determine its own position and orientation.
+2.  **Mapping**: The robot updates its map of the warehouse in real time, incorporating the new sensor data. The map is a 2D representation of the warehouse, with obstacles and free space
+
+0.16.635.467 I encoded   52 tokens in    0.099 seconds, speed:  524.305 t/s
+0.16.635.471 I decoded  257 tokens in   11.677 seconds, speed:   22.008 t/s
+0.16.635.472 I 
+0.16.635.472 I n_draft   = 0
+0.16.635.473 I n_predict = 257
+0.16.635.474 I n_drafted = 0
+0.16.635.474 I n_accept  = 0
+0.16.635.475 I accept    = nan%
+0.16.635.475 I 
+0.16.635.475 I draft:
+
+0.16.635.488 I 
+0.16.635.488 I target:
+
+0.16.635.495 I common_perf_print:    sampling time =      55.25 ms
+0.16.635.496 I common_perf_print:    samplers time =      24.87 ms /   257 tokens
+0.16.635.498 I common_perf_print:        load time =    2419.97 ms
+0.16.635.499 I common_perf_print: prompt eval time =     133.05 ms /    52 tokens (    2.56 ms per token,   390.82 tokens per second)
+0.16.635.501 I common_perf_print:        eval time =   11378.79 ms /   256 runs   (   44.45 ms per token,    22.50 tokens per second)
+0.16.635.502 I common_perf_print:       total time =   13341.34 ms /   308 tokens
+0.16.635.503 I common_perf_print: unaccounted time =    1774.24 ms /  13.3 %      (total - sampling - prompt eval - eval) / (total)
+0.16.635.504 I common_perf_print:    graphs reused =        255
+
+
+run saved in bench-run-20260813T004757Z (env.json, command.txt, stdout.log, stderr.log, exit-code.txt)
+2026-08-12-energy-maxn-q4km-4: 22.0 tok/s, 47.88 W decode, 2.176 J/tok (604 Wh/Mtok), idle 11.16/11.16 W
+=== benchmarks/2026-08-12-energy-maxn-q4km-5 ===
+
+
+<|begin_of_text|>Explain, in plain prose for a technical reader, how a mobile robot plans a path from one point to another in a warehouse: sensing, mapping, global planning, local avoidance, and what happens when an obstacle appears. Be concrete and methodical. Here is a simple example of a warehouse layout:
+```
+  +---------------+
+  |  A  |  B  |  C  |
+  +---------------+
+  |  |  |  |
+  |  |  |  |
+  |  |  |  |
+  +---------------+
+  |  D  |  E  |  F  |
+  +---------------+
+```
+The robot starts at point A and wants to go to point F. The robot has a laser range finder that can see up to 10 meters in all directions. The robot can move at 1 meter per second. The robot has a map of the warehouse that is updated in real time. The robot can also sense its own position and orientation.
+
+Here is a step-by-step explanation of how the robot plans a path from point A to point F:
+
+1.  **Sensing**: The robot uses its laser range finder to scan its surroundings and detect any obstacles within a 10-meter radius. The robot also uses its sensors to determine its own position and orientation.
+2.  **Mapping**: The robot updates its map of the warehouse in real time, incorporating the new sensor data. The map is a 2D representation of the warehouse, with obstacles and free space
+
+0.16.694.527 I encoded   52 tokens in    0.099 seconds, speed:  526.103 t/s
+0.16.694.530 I decoded  257 tokens in   11.691 seconds, speed:   21.983 t/s
+0.16.694.530 I 
+0.16.694.531 I n_draft   = 0
+0.16.694.532 I n_predict = 257
+0.16.694.532 I n_drafted = 0
+0.16.694.533 I n_accept  = 0
+0.16.694.534 I accept    = nan%
+0.16.694.535 I 
+0.16.694.535 I draft:
+
+0.16.694.547 I 
+0.16.694.548 I target:
+
+0.16.694.555 I common_perf_print:    sampling time =      55.59 ms
+0.16.694.556 I common_perf_print:    samplers time =      25.14 ms /   257 tokens
+0.16.694.558 I common_perf_print:        load time =    2449.52 ms
+0.16.694.559 I common_perf_print: prompt eval time =     132.76 ms /    52 tokens (    2.55 ms per token,   391.69 tokens per second)
+0.16.694.561 I common_perf_print:        eval time =   11381.39 ms /   256 runs   (   44.46 ms per token,    22.49 tokens per second)
+0.16.694.561 I common_perf_print:       total time =   13374.10 ms /   308 tokens
+0.16.694.562 I common_perf_print: unaccounted time =    1804.36 ms /  13.5 %      (total - sampling - prompt eval - eval) / (total)
+0.16.694.563 I common_perf_print:    graphs reused =        255
+
+
+run saved in bench-run-20260813T005047Z (env.json, command.txt, stdout.log, stderr.log, exit-code.txt)
+2026-08-12-energy-maxn-q4km-5: 22.0 tok/s, 47.60 W decode, 2.165 J/tok (602 Wh/Mtok), idle 11.16/11.16 W
+block done: maxn-q4km (5 runs)
+=== benchmarks/2026-08-12-energy-maxn-iq4xs-1 ===
+
+
+<|begin_of_text|>Explain, in plain prose for a technical reader, how a mobile robot plans a path from one point to another in a warehouse: sensing, mapping, global planning, local avoidance, and what happens when an obstacle appears. Be concrete and methodical. Here is a simplified example of a warehouse layout:
+```
+  +---------------+
+  |  Shelf 1    |
+  +---------------+
+  |  Shelf 2    |
+  +---------------+
+  |  Shelf 3    |
+  +---------------+
+  |  Shelf 4    |
+  +---------------+
+  |  Shelf 5    |
+  +---------------+
+  |  Shelf 6    |
+  +---------------+
+  |  Shelf 7    |
+  +---------------+
+  |  Shelf 8    |
+  +---------------+
+  |  Shelf 9    |
+  +---------------+
+  |  Shelf 10  |
+  +---------------+
+```
+## Step 1: Sensing and Mapping
+The mobile robot starts by sensing its environment using a combination of sensors such as lidars, cameras, and sonars. These sensors provide the robot with a 2D or 3D representation of its surroundings, including the location of shelves, obstacles, and other relevant features. The robot uses this sensor data to build a map of the warehouse, which is a representation of the environment that the robot can use to plan its path.
+
+## Step 2: Global Planning
+Once the robot has a map of the warehouse, it uses a global
+
+0.17.710.213 I encoded   52 tokens in    0.128 seconds, speed:  407.004 t/s
+0.17.710.217 I decoded  257 tokens in    9.595 seconds, speed:   26.785 t/s
+0.17.710.217 I 
+0.17.710.218 I n_draft   = 0
+0.17.710.219 I n_predict = 257
+0.17.710.220 I n_drafted = 0
+0.17.710.220 I n_accept  = 0
+0.17.710.221 I accept    = nan%
+0.17.710.222 I 
+0.17.710.222 I draft:
+
+0.17.710.234 I 
+0.17.710.234 I target:
+
+0.17.710.241 I common_perf_print:    sampling time =      54.49 ms
+0.17.710.242 I common_perf_print:    samplers time =      24.61 ms /   257 tokens
+0.17.710.244 I common_perf_print:        load time =    5568.61 ms
+0.17.710.245 I common_perf_print: prompt eval time =     127.99 ms /    52 tokens (    2.46 ms per token,   406.29 tokens per second)
+0.17.710.247 I common_perf_print:        eval time =    9329.48 ms /   256 runs   (   36.44 ms per token,    27.44 tokens per second)
+0.17.710.248 I common_perf_print:       total time =   11285.24 ms /   308 tokens
+0.17.710.249 I common_perf_print: unaccounted time =    1773.28 ms /  15.7 %      (total - sampling - prompt eval - eval) / (total)
+0.17.710.249 I common_perf_print:    graphs reused =        255
+
+
+run saved in bench-run-20260813T005308Z (env.json, command.txt, stdout.log, stderr.log, exit-code.txt)
+2026-08-12-energy-maxn-iq4xs-1: 26.8 tok/s, 48.24 W decode, 1.801 J/tok (500 Wh/Mtok), idle 11.16/11.16 W
+=== benchmarks/2026-08-12-energy-maxn-iq4xs-2 ===
+
+
+<|begin_of_text|>Explain, in plain prose for a technical reader, how a mobile robot plans a path from one point to another in a warehouse: sensing, mapping, global planning, local avoidance, and what happens when an obstacle appears. Be concrete and methodical. Here is a simplified example of a warehouse layout:
+```
+  +---------------+
+  |  Shelf 1    |
+  +---------------+
+  |  Shelf 2    |
+  +---------------+
+  |  Shelf 3    |
+  +---------------+
+  |  Shelf 4    |
+  +---------------+
+  |  Shelf 5    |
+  +---------------+
+  |  Shelf 6    |
+  +---------------+
+  |  Shelf 7    |
+  +---------------+
+  |  Shelf 8    |
+  +---------------+
+  |  Shelf 9    |
+  +---------------+
+  |  Shelf 10  |
+  +---------------+
+```
+## Step 1: Sensing and Mapping
+The mobile robot starts by sensing its environment using a combination of sensors such as lidars, cameras, and sonars. These sensors provide the robot with a 2D or 3D representation of its surroundings, including the location of shelves, obstacles, and other relevant features. The robot uses this sensor data to build a map of the warehouse, which is a representation of the environment that the robot can use to plan its path.
+
+## Step 2: Global Planning
+Once the robot has a map of the warehouse, it uses a global
+
+0.14.388.445 I encoded   52 tokens in    0.116 seconds, speed:  448.512 t/s
+0.14.388.448 I decoded  257 tokens in    9.596 seconds, speed:   26.781 t/s
+0.14.388.449 I 
+0.14.388.449 I n_draft   = 0
+0.14.388.449 I n_predict = 257
+0.14.388.450 I n_drafted = 0
+0.14.388.450 I n_accept  = 0
+0.14.388.450 I accept    = nan%
+0.14.388.450 I 
+0.14.388.451 I draft:
+
+0.14.388.463 I 
+0.14.388.464 I target:
+
+0.14.388.470 I common_perf_print:    sampling time =      54.53 ms
+0.14.388.470 I common_perf_print:    samplers time =      24.64 ms /   257 tokens
+0.14.388.472 I common_perf_print:        load time =    2262.27 ms
+0.14.388.474 I common_perf_print: prompt eval time =     116.16 ms /    52 tokens (    2.23 ms per token,   447.67 tokens per second)
+0.14.388.475 I common_perf_print:        eval time =    9330.23 ms /   256 runs   (   36.45 ms per token,    27.44 tokens per second)
+0.14.388.476 I common_perf_print:       total time =   11278.09 ms /   308 tokens
+0.14.388.477 I common_perf_print: unaccounted time =    1777.17 ms /  15.8 %      (total - sampling - prompt eval - eval) / (total)
+0.14.388.478 I common_perf_print:    graphs reused =        255
+
+
+run saved in bench-run-20260813T005559Z (env.json, command.txt, stdout.log, stderr.log, exit-code.txt)
+2026-08-12-energy-maxn-iq4xs-2: 26.8 tok/s, 48.37 W decode, 1.806 J/tok (502 Wh/Mtok), idle 11.16/11.16 W
+=== benchmarks/2026-08-12-energy-maxn-iq4xs-3 ===
+
+
+<|begin_of_text|>Explain, in plain prose for a technical reader, how a mobile robot plans a path from one point to another in a warehouse: sensing, mapping, global planning, local avoidance, and what happens when an obstacle appears. Be concrete and methodical. Here is a simplified example of a warehouse layout:
+```
+  +---------------+
+  |  Shelf 1    |
+  +---------------+
+  |  Shelf 2    |
+  +---------------+
+  |  Shelf 3    |
+  +---------------+
+  |  Shelf 4    |
+  +---------------+
+  |  Shelf 5    |
+  +---------------+
+  |  Shelf 6    |
+  +---------------+
+  |  Shelf 7    |
+  +---------------+
+  |  Shelf 8    |
+  +---------------+
+  |  Shelf 9    |
+  +---------------+
+  |  Shelf 10  |
+  +---------------+
+```
+## Step 1: Sensing and Mapping
+The mobile robot starts by sensing its environment using a combination of sensors such as lidars, cameras, and sonars. These sensors provide the robot with a 2D or 3D representation of its surroundings, including the location of shelves, obstacles, and other relevant features. The robot uses this sensor data to build a map of the warehouse, which is a representation of the environment that the robot can use to plan its path.
+
+## Step 2: Global Planning
+Once the robot has a map of the warehouse, it uses a global
+
+0.14.396.731 I encoded   52 tokens in    0.116 seconds, speed:  448.009 t/s
+0.14.396.734 I decoded  257 tokens in    9.597 seconds, speed:   26.781 t/s
+0.14.396.734 I 
+0.14.396.735 I n_draft   = 0
+0.14.396.735 I n_predict = 257
+0.14.396.736 I n_drafted = 0
+0.14.396.736 I n_accept  = 0
+0.14.396.736 I accept    = nan%
+0.14.396.737 I 
+0.14.396.739 I draft:
+
+0.14.396.750 I 
+0.14.396.751 I target:
+
+0.14.396.758 I common_perf_print:    sampling time =      54.50 ms
+0.14.396.759 I common_perf_print:    samplers time =      24.52 ms /   257 tokens
+0.14.396.760 I common_perf_print:        load time =    2257.76 ms
+0.14.396.762 I common_perf_print: prompt eval time =     116.29 ms /    52 tokens (    2.24 ms per token,   447.15 tokens per second)
+0.14.396.763 I common_perf_print:        eval time =    9333.12 ms /   256 runs   (   36.46 ms per token,    27.43 tokens per second)
+0.14.396.764 I common_perf_print:       total time =   11287.73 ms /   308 tokens
+0.14.396.765 I common_perf_print: unaccounted time =    1783.81 ms /  15.8 %      (total - sampling - prompt eval - eval) / (total)
+0.14.396.766 I common_perf_print:    graphs reused =        255
+
+
+run saved in bench-run-20260813T005846Z (env.json, command.txt, stdout.log, stderr.log, exit-code.txt)
+2026-08-12-energy-maxn-iq4xs-3: 26.8 tok/s, 48.27 W decode, 1.803 J/tok (501 Wh/Mtok), idle 11.16/11.16 W
+=== benchmarks/2026-08-12-energy-maxn-iq4xs-4 ===
+
+
+<|begin_of_text|>Explain, in plain prose for a technical reader, how a mobile robot plans a path from one point to another in a warehouse: sensing, mapping, global planning, local avoidance, and what happens when an obstacle appears. Be concrete and methodical. Here is a simplified example of a warehouse layout:
+```
+  +---------------+
+  |  Shelf 1    |
+  +---------------+
+  |  Shelf 2    |
+  +---------------+
+  |  Shelf 3    |
+  +---------------+
+  |  Shelf 4    |
+  +---------------+
+  |  Shelf 5    |
+  +---------------+
+  |  Shelf 6    |
+  +---------------+
+  |  Shelf 7    |
+  +---------------+
+  |  Shelf 8    |
+  +---------------+
+  |  Shelf 9    |
+  +---------------+
+  |  Shelf 10  |
+  +---------------+
+```
+## Step 1: Sensing and Mapping
+The mobile robot starts by sensing its environment using a combination of sensors such as lidars, cameras, and sonars. These sensors provide the robot with a 2D or 3D representation of its surroundings, including the location of shelves, obstacles, and other relevant features. The robot uses this sensor data to build a map of the warehouse, which is a representation of the environment that the robot can use to plan its path.
+
+## Step 2: Global Planning
+Once the robot has a map of the warehouse, it uses a global
+
+0.14.378.748 I encoded   52 tokens in    0.116 seconds, speed:  448.597 t/s
+0.14.378.751 I decoded  257 tokens in    9.600 seconds, speed:   26.770 t/s
+0.14.378.752 I 
+0.14.378.752 I n_draft   = 0
+0.14.378.753 I n_predict = 257
+0.14.378.754 I n_drafted = 0
+0.14.378.754 I n_accept  = 0
+0.14.378.755 I accept    = nan%
+0.14.378.755 I 
+0.14.378.756 I draft:
+
+0.14.378.767 I 
+0.14.378.768 I target:
+
+0.14.378.775 I common_perf_print:    sampling time =      55.24 ms
+0.14.378.776 I common_perf_print:    samplers time =      25.02 ms /   257 tokens
+0.14.378.777 I common_perf_print:        load time =    2256.47 ms
+0.14.378.779 I common_perf_print: prompt eval time =     116.15 ms /    52 tokens (    2.23 ms per token,   447.70 tokens per second)
+0.14.378.780 I common_perf_print:        eval time =    9332.16 ms /   256 runs   (   36.45 ms per token,    27.43 tokens per second)
+0.14.378.781 I common_perf_print:       total time =   11278.13 ms /   308 tokens
+0.14.378.782 I common_perf_print: unaccounted time =    1774.58 ms /  15.7 %      (total - sampling - prompt eval - eval) / (total)
+0.14.378.782 I common_perf_print:    graphs reused =        255
+
+
+run saved in bench-run-20260813T010134Z (env.json, command.txt, stdout.log, stderr.log, exit-code.txt)
+2026-08-12-energy-maxn-iq4xs-4: 26.8 tok/s, 48.36 W decode, 1.806 J/tok (502 Wh/Mtok), idle 11.16/11.16 W
+=== benchmarks/2026-08-12-energy-maxn-iq4xs-5 ===
+
+
+<|begin_of_text|>Explain, in plain prose for a technical reader, how a mobile robot plans a path from one point to another in a warehouse: sensing, mapping, global planning, local avoidance, and what happens when an obstacle appears. Be concrete and methodical. Here is a simplified example of a warehouse layout:
+```
+  +---------------+
+  |  Shelf 1    |
+  +---------------+
+  |  Shelf 2    |
+  +---------------+
+  |  Shelf 3    |
+  +---------------+
+  |  Shelf 4    |
+  +---------------+
+  |  Shelf 5    |
+  +---------------+
+  |  Shelf 6    |
+  +---------------+
+  |  Shelf 7    |
+  +---------------+
+  |  Shelf 8    |
+  +---------------+
+  |  Shelf 9    |
+  +---------------+
+  |  Shelf 10  |
+  +---------------+
+```
+## Step 1: Sensing and Mapping
+The mobile robot starts by sensing its environment using a combination of sensors such as lidars, cameras, and sonars. These sensors provide the robot with a 2D or 3D representation of its surroundings, including the location of shelves, obstacles, and other relevant features. The robot uses this sensor data to build a map of the warehouse, which is a representation of the environment that the robot can use to plan its path.
+
+## Step 2: Global Planning
+Once the robot has a map of the warehouse, it uses a global
+
+0.14.420.747 I encoded   52 tokens in    0.116 seconds, speed:  447.975 t/s
+0.14.420.750 I decoded  257 tokens in    9.600 seconds, speed:   26.770 t/s
+0.14.420.751 I 
+0.14.420.751 I n_draft   = 0
+0.14.420.752 I n_predict = 257
+0.14.420.752 I n_drafted = 0
+0.14.420.752 I n_accept  = 0
+0.14.420.753 I accept    = nan%
+0.14.420.754 I 
+0.14.420.754 I draft:
+
+0.14.420.767 I 
+0.14.420.768 I target:
+
+0.14.420.775 I common_perf_print:    sampling time =      55.62 ms
+0.14.420.776 I common_perf_print:    samplers time =      25.31 ms /   257 tokens
+0.14.420.778 I common_perf_print:        load time =    2271.63 ms
+0.14.420.780 I common_perf_print: prompt eval time =     116.32 ms /    52 tokens (    2.24 ms per token,   447.04 tokens per second)
+0.14.420.781 I common_perf_print:        eval time =    9332.30 ms /   256 runs   (   36.45 ms per token,    27.43 tokens per second)
+0.14.420.782 I common_perf_print:       total time =   11287.55 ms /   308 tokens
+0.14.420.784 I common_perf_print: unaccounted time =    1783.30 ms /  15.8 %      (total - sampling - prompt eval - eval) / (total)
+0.14.420.785 I common_perf_print:    graphs reused =        255
+
+
+run saved in bench-run-20260813T010422Z (env.json, command.txt, stdout.log, stderr.log, exit-code.txt)
+2026-08-12-energy-maxn-iq4xs-5: 26.8 tok/s, 48.29 W decode, 1.804 J/tok (501 Wh/Mtok), idle 11.16/11.16 W
+block done: maxn-iq4xs (5 runs)
+=== benchmarks/2026-08-12-energy-maxn-spec-1 ===
+
+
+<|begin_of_text|>Explain, in plain prose for a technical reader, how a mobile robot plans a path from one point to another in a warehouse: sensing, mapping, global planning, local avoidance, and what happens when an obstacle appears. Be concrete and methodical. Here is a simple example of a warehouse layout:
+```
+  +---------------+
+  |               |
+  |  +-----------+  |
+  |  |          |  |
+  |  |  +-----+  |  |
+  |  |  |     |  |  |
+  |  |  |  A  |  |  |
+  |  |  +-----+  |  |
+  |  |          |  |
+  |  +-----------+  |
+  |               |
+  +---------------+
+  |               |
+  |  +-----------+  |
+  |  |          |  |
+  |  |  +-----+  |  |
+  |  |  |     |  |  |
+  |  |  |  B  |  |  |
+  |  |  +-----+  |  |
+  |  |          |  |
+  |  +-----------+  |
+  |               |
+  +---------------+
+```
+In this example, the robot starts at point A and needs to reach point B. The robot has a map of the warehouse, which is a grid of cells, each representing a square meter of the warehouse floor. The map is represented as a 2D array of
+
+0.10.586.282 I encoded   52 tokens in    0.099 seconds, speed:  522.850 t/s
+0.10.586.287 I decoded  260 tokens in    5.560 seconds, speed:   46.765 t/s
+0.10.586.287 I 
+0.10.586.289 I n_draft   = 8
+0.10.586.290 I n_predict = 260
+0.10.586.290 I n_drafted = 368
+0.10.586.290 I n_accept  = 213
+0.10.586.291 I accept    = 57.880%
+0.10.586.292 I 
+0.10.586.292 I draft:
+
+0.10.586.304 I 
+0.10.586.304 I target:
+
+0.10.586.311 I common_perf_print:    sampling time =      51.48 ms
+0.10.586.312 I common_perf_print:    samplers time =      23.59 ms /   260 tokens
+0.10.586.314 I common_perf_print:        load time =    2460.53 ms
+0.10.586.315 I common_perf_print: prompt eval time =    2322.10 ms /   466 tokens (    4.98 ms per token,   200.68 tokens per second)
+0.10.586.317 I common_perf_print:        eval time =       0.00 ms /     1 runs   (    0.00 ms per token,      inf tokens per second)
+0.10.586.318 I common_perf_print:       total time =    7274.83 ms /   467 tokens
+0.10.586.319 I common_perf_print: unaccounted time =    4901.25 ms /  67.4 %      (total - sampling - prompt eval - eval) / (total)
+0.10.586.320 I common_perf_print:    graphs reused =         44
+
+
+run saved in bench-run-20260813T010640Z (env.json, command.txt, stdout.log, stderr.log, exit-code.txt)
+2026-08-12-energy-maxn-spec-1: 46.8 tok/s, 41.67 W decode, 0.891 J/tok (248 Wh/Mtok), idle 11.16/11.16 W
+=== benchmarks/2026-08-12-energy-maxn-spec-2 ===
+
+
+<|begin_of_text|>Explain, in plain prose for a technical reader, how a mobile robot plans a path from one point to another in a warehouse: sensing, mapping, global planning, local avoidance, and what happens when an obstacle appears. Be concrete and methodical. Here is a simple example of a warehouse layout:
+```
+  +---------------+
+  |               |
+  |  +-----------+  |
+  |  |          |  |
+  |  |  +-----+  |  |
+  |  |  |     |  |  |
+  |  |  |  A  |  |  |
+  |  |  +-----+  |  |
+  |  |          |  |
+  |  +-----------+  |
+  |               |
+  +---------------+
+  |               |
+  |  +-----------+  |
+  |  |          |  |
+  |  |  +-----+  |  |
+  |  |  |     |  |  |
+  |  |  |  B  |  |  |
+  |  |  +-----+  |  |
+  |  |          |  |
+  |  +-----------+  |
+  |               |
+  +---------------+
+```
+In this example, the robot starts at point A and needs to reach point B. The robot has a map of the warehouse, which is a grid of cells, each representing a square meter of the warehouse floor. The map is represented as a 2D array of
+
+0.10.531.607 I encoded   52 tokens in    0.100 seconds, speed:  522.167 t/s
+0.10.531.610 I decoded  260 tokens in    5.549 seconds, speed:   46.858 t/s
+0.10.531.611 I 
+0.10.531.612 I n_draft   = 8
+0.10.531.613 I n_predict = 260
+0.10.531.613 I n_drafted = 368
+0.10.531.613 I n_accept  = 213
+0.10.531.614 I accept    = 57.880%
+0.10.531.614 I 
+0.10.531.615 I draft:
+
+0.10.531.628 I 
+0.10.531.628 I target:
+
+0.10.531.635 I common_perf_print:    sampling time =      51.41 ms
+0.10.531.637 I common_perf_print:    samplers time =      23.56 ms /   260 tokens
+0.10.531.639 I common_perf_print:        load time =    2451.88 ms
+0.10.531.640 I common_perf_print: prompt eval time =    2323.65 ms /   466 tokens (    4.99 ms per token,   200.55 tokens per second)
+0.10.531.642 I common_perf_print:        eval time =       0.00 ms /     1 runs   (    0.00 ms per token,      inf tokens per second)
+0.10.531.643 I common_perf_print:       total time =    7227.66 ms /   467 tokens
+0.10.531.644 I common_perf_print: unaccounted time =    4852.60 ms /  67.1 %      (total - sampling - prompt eval - eval) / (total)
+0.10.531.645 I common_perf_print:    graphs reused =         44
+
+
+run saved in bench-run-20260813T010923Z (env.json, command.txt, stdout.log, stderr.log, exit-code.txt)
+2026-08-12-energy-maxn-spec-2: 46.9 tok/s, 42.30 W decode, 0.903 J/tok (251 Wh/Mtok), idle 11.16/11.26 W
+=== benchmarks/2026-08-12-energy-maxn-spec-3 ===
+
+
+<|begin_of_text|>Explain, in plain prose for a technical reader, how a mobile robot plans a path from one point to another in a warehouse: sensing, mapping, global planning, local avoidance, and what happens when an obstacle appears. Be concrete and methodical. Here is a simple example of a warehouse layout:
+```
+  +---------------+
+  |               |
+  |  +-----------+  |
+  |  |          |  |
+  |  |  +-----+  |  |
+  |  |  |     |  |  |
+  |  |  |  A  |  |  |
+  |  |  +-----+  |  |
+  |  |          |  |
+  |  +-----------+  |
+  |               |
+  +---------------+
+  |               |
+  |  +-----------+  |
+  |  |          |  |
+  |  |  +-----+  |  |
+  |  |  |     |  |  |
+  |  |  |  B  |  |  |
+  |  |  +-----+  |  |
+  |  |          |  |
+  |  +-----------+  |
+  |               |
+  +---------------+
+```
+In this example, the robot starts at point A and needs to reach point B. The robot has a map of the warehouse, which is a grid of cells, each representing a square meter of the warehouse floor. The map is represented as a 2D array of
+
+0.10.561.454 I encoded   52 tokens in    0.099 seconds, speed:  523.882 t/s
+0.10.561.457 I decoded  260 tokens in    5.554 seconds, speed:   46.811 t/s
+0.10.561.458 I 
+0.10.561.459 I n_draft   = 8
+0.10.561.459 I n_predict = 260
+0.10.561.460 I n_drafted = 368
+0.10.561.460 I n_accept  = 213
+0.10.561.461 I accept    = 57.880%
+0.10.561.461 I 
+0.10.561.461 I draft:
+
+0.10.561.473 I 
+0.10.561.473 I target:
+
+0.10.561.480 I common_perf_print:    sampling time =      51.36 ms
+0.10.561.481 I common_perf_print:    samplers time =      23.81 ms /   260 tokens
+0.10.561.483 I common_perf_print:        load time =    2450.50 ms
+0.10.561.485 I common_perf_print: prompt eval time =    2321.63 ms /   466 tokens (    4.98 ms per token,   200.72 tokens per second)
+0.10.561.487 I common_perf_print:        eval time =       0.00 ms /     1 runs   (    0.00 ms per token,      inf tokens per second)
+0.10.561.488 I common_perf_print:       total time =    7226.45 ms /   467 tokens
+0.10.561.489 I common_perf_print: unaccounted time =    4853.46 ms /  67.2 %      (total - sampling - prompt eval - eval) / (total)
+0.10.561.490 I common_perf_print:    graphs reused =         44
+
+
+run saved in bench-run-20260813T011207Z (env.json, command.txt, stdout.log, stderr.log, exit-code.txt)
+2026-08-12-energy-maxn-spec-3: 46.8 tok/s, 42.00 W decode, 0.897 J/tok (249 Wh/Mtok), idle 11.26/11.16 W
+=== benchmarks/2026-08-12-energy-maxn-spec-4 ===
+
+
+<|begin_of_text|>Explain, in plain prose for a technical reader, how a mobile robot plans a path from one point to another in a warehouse: sensing, mapping, global planning, local avoidance, and what happens when an obstacle appears. Be concrete and methodical. Here is a simple example of a warehouse layout:
+```
+  +---------------+
+  |               |
+  |  +-----------+  |
+  |  |          |  |
+  |  |  +-----+  |  |
+  |  |  |     |  |  |
+  |  |  |  A  |  |  |
+  |  |  +-----+  |  |
+  |  |          |  |
+  |  +-----------+  |
+  |               |
+  +---------------+
+  |               |
+  |  +-----------+  |
+  |  |          |  |
+  |  |  +-----+  |  |
+  |  |  |     |  |  |
+  |  |  |  B  |  |  |
+  |  |  +-----+  |  |
+  |  |          |  |
+  |  +-----------+  |
+  |               |
+  +---------------+
+```
+In this example, the robot starts at point A and needs to reach point B. The robot has a map of the warehouse, which is a grid of cells, each representing a square meter of the warehouse floor. The map is represented as a 2D array of
+
+0.10.585.897 I encoded   52 tokens in    0.099 seconds, speed:  523.176 t/s
+0.10.585.901 I decoded  260 tokens in    5.575 seconds, speed:   46.640 t/s
+0.10.585.901 I 
+0.10.585.902 I n_draft   = 8
+0.10.585.902 I n_predict = 260
+0.10.585.903 I n_drafted = 368
+0.10.585.903 I n_accept  = 213
+0.10.585.905 I accept    = 57.880%
+0.10.585.905 I 
+0.10.585.906 I draft:
+
+0.10.585.919 I 
+0.10.585.919 I target:
+
+0.10.585.926 I common_perf_print:    sampling time =      51.86 ms
+0.10.585.927 I common_perf_print:    samplers time =      24.00 ms /   260 tokens
+0.10.585.929 I common_perf_print:        load time =    2486.99 ms
+0.10.585.931 I common_perf_print: prompt eval time =    2327.69 ms /   466 tokens (    5.00 ms per token,   200.20 tokens per second)
+0.10.585.933 I common_perf_print:        eval time =       0.00 ms /     1 runs   (    0.00 ms per token,      inf tokens per second)
+0.10.585.933 I common_perf_print:       total time =    7248.25 ms /   467 tokens
+0.10.585.935 I common_perf_print: unaccounted time =    4868.70 ms /  67.2 %      (total - sampling - prompt eval - eval) / (total)
+0.10.585.936 I common_perf_print:    graphs reused =         44
+
+
+run saved in bench-run-20260813T011451Z (env.json, command.txt, stdout.log, stderr.log, exit-code.txt)
+2026-08-12-energy-maxn-spec-4: 46.6 tok/s, 41.45 W decode, 0.889 J/tok (247 Wh/Mtok), idle 11.16/11.26 W
+=== benchmarks/2026-08-12-energy-maxn-spec-5 ===
+
+
+<|begin_of_text|>Explain, in plain prose for a technical reader, how a mobile robot plans a path from one point to another in a warehouse: sensing, mapping, global planning, local avoidance, and what happens when an obstacle appears. Be concrete and methodical. Here is a simple example of a warehouse layout:
+```
+  +---------------+
+  |               |
+  |  +-----------+  |
+  |  |          |  |
+  |  |  +-----+  |  |
+  |  |  |     |  |  |
+  |  |  |  A  |  |  |
+  |  |  +-----+  |  |
+  |  |          |  |
+  |  +-----------+  |
+  |               |
+  +---------------+
+  |               |
+  |  +-----------+  |
+  |  |          |  |
+  |  |  +-----+  |  |
+  |  |  |     |  |  |
+  |  |  |  B  |  |  |
+  |  |  +-----+  |  |
+  |  |          |  |
+  |  +-----------+  |
+  |               |
+  +---------------+
+```
+In this example, the robot starts at point A and needs to reach point B. The robot has a map of the warehouse, which is a grid of cells, each representing a square meter of the warehouse floor. The map is represented as a 2D array of
+
+0.10.657.322 I encoded   52 tokens in    0.099 seconds, speed:  523.328 t/s
+0.10.657.325 I decoded  260 tokens in    5.561 seconds, speed:   46.755 t/s
+0.10.657.325 I 
+0.10.657.326 I n_draft   = 8
+0.10.657.327 I n_predict = 260
+0.10.657.327 I n_drafted = 368
+0.10.657.327 I n_accept  = 213
+0.10.657.328 I accept    = 57.880%
+0.10.657.328 I 
+0.10.657.329 I draft:
+
+0.10.657.342 I 
+0.10.657.342 I target:
+
+0.10.657.349 I common_perf_print:    sampling time =      52.88 ms
+0.10.657.350 I common_perf_print:    samplers time =      24.44 ms /   260 tokens
+0.10.657.352 I common_perf_print:        load time =    2485.89 ms
+0.10.657.353 I common_perf_print: prompt eval time =    2321.32 ms /   466 tokens (    4.98 ms per token,   200.75 tokens per second)
+0.10.657.354 I common_perf_print:        eval time =       0.00 ms /     1 runs   (    0.00 ms per token,      inf tokens per second)
+0.10.657.355 I common_perf_print:       total time =    7257.06 ms /   467 tokens
+0.10.657.356 I common_perf_print: unaccounted time =    4882.86 ms /  67.3 %      (total - sampling - prompt eval - eval) / (total)
+0.10.657.356 I common_perf_print:    graphs reused =         44
+
+
+run saved in bench-run-20260813T011735Z (env.json, command.txt, stdout.log, stderr.log, exit-code.txt)
+2026-08-12-energy-maxn-spec-5: 46.8 tok/s, 42.04 W decode, 0.899 J/tok (250 Wh/Mtok), idle 11.16/11.16 W
+block done: maxn-spec (5 runs)
+CAMPAIGN-DONE

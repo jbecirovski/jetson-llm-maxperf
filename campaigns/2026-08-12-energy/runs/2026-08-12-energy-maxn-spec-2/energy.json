@@ -1,0 +1,23 @@
+{
+  "decoded_tokens": 260,
+  "decode_s": 5.549,
+  "tok_per_s": 46.85528924130474,
+  "energy_decode_j": 234.72,
+  "j_per_token": 0.9028,
+  "j_per_token_marginal": 0.6646,
+  "wh_per_mtok": 250.8,
+  "wh_per_mtok_marginal": 184.6,
+  "decode_mean_w": 42.3,
+  "idle_pre_w": 11.16,
+  "idle_post_w": 11.26,
+  "energy_cmd_total_j": 341.11,
+  "cmd_s": 11.74,
+  "prefill_tokens": 52,
+  "prefill_s": 0.1,
+  "n_drafted": 368,
+  "n_accept": 213,
+  "tail_s": 1.0,
+  "sample_count": 1338,
+  "max_gap_s_in_cmd": 0.101,
+  "method": "trapezoidal integral of VDD_GPU_SOC+VDD_CPU_CV+VIN_SYS_5V0 (0x40 rails, VDDQ excluded: subset of VIN_SYS_5V0); decode window anchored at cmd_end - tail_s; internal sensors = lower bound vs wall (Padova: ~1.02x + 3.1 W)"
+}

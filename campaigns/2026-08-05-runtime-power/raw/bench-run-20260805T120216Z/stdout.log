@@ -1,0 +1,39 @@
+
+
+<|begin_of_text|>Write a detailed step-by-step explanation of how to set up a ROS 2 node in Python that subscribes to a laser scan topic and publishes velocity commands for obstacle avoidance. 
+
+Here's a step-by-step guide to setting up a ROS 2 node in Python that subscribes to a laser scan topic and publishes velocity commands for obstacle avoidance:
+
+### Step 1: Install ROS 2 and required packages
+
+First, you need to install ROS 2 and the required packages. You can do this by running the following commands in your terminal:
+
+```bash
+# Install ROS 2
+sudo apt update
+sudo apt install curl
+curl -s https://raw.githubusercontent.com/ros2/ros2/dist/ros2-b bags/foxy/ros2-bags-foxy.sh | sh
+source ~/.bashrc
+
+# Install required packages
+sudo apt install python3-pip
+pip3 install rclpy
+```
+
+### Step 2: Create a new Python file for the ROS 2 node
+
+Create a new Python file for the ROS 2 node. For example, you can create a file called `obstacle_avoidance_node.py`.
+
+### Step 3: Import required modules
+
+In the Python file, import the required modules:
+
+```python
+import rclpy
+from rclpy.node import Node
+from rclpy.qos import QoSProfile
+from sensor_msgs.msg import LaserScan
+from geometry_msgs.msg import Twist
+
+
+

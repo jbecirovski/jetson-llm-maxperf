@@ -1,0 +1,9 @@
+# Scripts run on the Jetson board: they must keep LF endings, a CRLF shebang
+# makes the kernel refuse the interpreter.
+*.sh text eol=lf
+*.py text eol=lf
+
+# Proof directories: keep exactly what the board produced.
+campaigns/*/runs/** -text
+campaigns/*/raw/** -text
+campaigns/*/results/*.log -text

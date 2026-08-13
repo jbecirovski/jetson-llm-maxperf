@@ -1,0 +1,22 @@
+2.13.547.940 I encoded 15718 tokens in   87.378 seconds, speed:  179.886 t/s
+2.13.547.944 I decoded  193 tokens in   41.111 seconds, speed:    4.695 t/s
+2.13.547.945 I 
+2.13.547.945 I n_draft   = 0
+2.13.547.946 I n_predict = 193
+2.13.547.946 I n_drafted = 0
+2.13.547.947 I n_accept  = 0
+2.13.547.948 I accept    = nan%
+2.13.547.950 I 
+2.13.547.951 I draft:
+
+2.13.547.966 I 
+2.13.547.967 I target:
+
+2.13.547.974 I common_perf_print:    sampling time =      58.21 ms
+2.13.547.976 I common_perf_print:    samplers time =      26.89 ms /   193 tokens
+2.13.547.978 I common_perf_print:        load time =    2053.24 ms
+2.13.547.981 I common_perf_print: prompt eval time =   87376.00 ms / 15718 tokens (    5.56 ms per token,   179.89 tokens per second)
+2.13.547.983 I common_perf_print:        eval time =   32340.83 ms /   192 runs   (  168.44 ms per token,     5.94 tokens per second)
+2.13.547.984 I common_perf_print:       total time =  130485.78 ms / 15910 tokens
+2.13.547.985 I common_perf_print: unaccounted time =   10710.74 ms /   8.2 %      (total - sampling - prompt eval - eval) / (total)
+2.13.547.986 I common_perf_print:    graphs reused =        191

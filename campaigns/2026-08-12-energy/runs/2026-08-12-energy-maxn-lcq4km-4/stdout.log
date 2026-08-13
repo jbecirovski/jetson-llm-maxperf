@@ -1,0 +1,638 @@
+
+
+<|begin_of_text|>You are the reporting module of a warehouse inspection robot. Below is the raw mission log. Read it fully, then answer.
+
+[      2.2] INFO  aisle-2    waypoint reached, localization confidence 0.67
+[      4.0] INFO  ramp-S     waypoint reached, localization confidence 0.64
+[      5.4] INFO  charge-bay waypoint reached, localization confidence 0.97
+[      7.3] ERROR aisle-3    camera frame dropped, exposure retry 85
+[     10.4] WARN  mezzanine  path replanned, clearance 0.35 m below threshold
+[     12.6] INFO  ramp-N     lidar scan ok, 39294 points, 3 dynamic obstacles tracked
+[     14.1] INFO  aisle-2    waypoint reached, localization confidence 0.95
+[     16.6] INFO  dock-A     lidar scan ok, 37077 points, 4 dynamic obstacles tracked
+[     19.4] INFO  dock-A     waypoint reached, localization confidence 0.62
+[     21.7] INFO  cold-room  waypoint reached, localization confidence 0.94
+[     24.3] INFO  cold-room  lidar scan ok, 28558 points, 6 dynamic obstacles tracked
+[     27.2] INFO  dock-B     battery at 57%, cell delta 17 mV, temp 22.3 C
+[     30.4] INFO  aisle-2    lidar scan ok, 40148 points, 4 dynamic obstacles tracked
+[     32.8] INFO  cold-room  lidar scan ok, 33472 points, 3 dynamic obstacles tracked
+[     33.8] INFO  aisle-2    waypoint reached, localization confidence 0.58
+[     35.7] INFO  ramp-S     inspection photo captured, blur score 0.94
+[     37.4] INFO  charge-bay inspection photo captured, blur score 0.85
+[     38.2] INFO  aisle-1    waypoint reached, localization confidence 0.75
+[     39.8] INFO  cold-room  lidar scan ok, 12842 points, 1 dynamic obstacles tracked
+[     42.0] INFO  cold-room  lidar scan ok, 23267 points, 0 dynamic obstacles tracked
+[     45.0] INFO  mezzanine  lidar scan ok, 14250 points, 6 dynamic obstacles tracked
+[     46.1] INFO  aisle-2    battery at 92%, cell delta 38 mV, temp 33.0 C
+[     47.2] INFO  aisle-2    waypoint reached, localization confidence 0.83
+[     49.0] INFO  cold-room  waypoint reached, localization confidence 0.70
+[     49.5] WARN  mezzanine  path replanned, clearance 0.68 m below threshold
+[     50.4] INFO  aisle-3    lidar scan ok, 26300 points, 4 dynamic obstacles tracked
+[     51.0] INFO  cold-room  lidar scan ok, 26167 points, 1 dynamic obstacles tracked
+[     51.5] INFO  aisle-2    lidar scan ok, 37166 points, 1 dynamic obstacles tracked
+[     53.8] INFO  dock-A     battery at 37%, cell delta 17 mV, temp 40.9 C
+[     54.7] WARN  charge-bay wheel slip detected, odometry drift 0.65 m corrected
+[     55.7] WARN  aisle-3    path replanned, clearance 0.21 m below threshold
+[     57.1] INFO  mezzanine  lidar scan ok, 30702 points, 0 dynamic obstacles tracked
+[     58.7] INFO  aisle-2    inspection photo captured, blur score 0.69
+[     60.1] INFO  ramp-N     waypoint reached, localization confidence 0.84
+[     61.6] INFO  aisle-3    waypoint reached, localization confidence 0.61
+[     62.9] INFO  aisle-3    lidar scan ok, 30118 points, 3 dynamic obstacles tracked
+[     64.7] INFO  mezzanine  battery at 57%, cell delta 16 mV, temp 39.6 C
+[     67.5] INFO  ramp-S     waypoint reached, localization confidence 0.73
+[     68.5] WARN  cold-room  path replanned, clearance 0.15 m below threshold
+[     71.7] INFO  charge-bay battery at 82%, cell delta 29 mV, temp 40.1 C
+[     72.8] INFO  ramp-N     waypoint reached, localization confidence 0.83
+[     75.7] INFO  dock-A     waypoint reached, localization confidence 0.62
+[     76.7] INFO  ramp-S     lidar scan ok, 10280 points, 6 dynamic obstacles tracked
+[     78.6] INFO  aisle-1    inspection photo captured, blur score 0.90
+[     81.3] WARN  aisle-1    wheel slip detected, odometry drift 0.12 m corrected
+[     81.9] INFO  charge-bay lidar scan ok, 30420 points, 2 dynamic obstacles tracked
+[     82.3] INFO  mezzanine  lidar scan ok, 31935 points, 1 dynamic obstacles tracked
+[     83.1] INFO  aisle-1    waypoint reached, localization confidence 0.84
+[     86.2] INFO  dock-B     waypoint reached, localization confidence 0.56
+[     88.6] INFO  ramp-N     lidar scan ok, 16933 points, 6 dynamic obstacles tracked
+[     89.0] INFO  mezzanine  lidar scan ok, 37411 points, 2 dynamic obstacles tracked
+[     91.7] INFO  aisle-2    lidar scan ok, 37545 points, 6 dynamic obstacles tracked
+[     94.2] INFO  mezzanine  battery at 81%, cell delta 22 mV, temp 25.2 C
+[     96.6] INFO  charge-bay waypoint reached, localization confidence 0.55
+[     99.2] INFO  ramp-N     waypoint reached, localization confidence 0.65
+[    100.6] INFO  aisle-2    lidar scan ok, 24108 points, 0 dynamic obstacles tracked
+[    101.6] INFO  aisle-1    lidar scan ok, 27546 points, 0 dynamic obstacles tracked
+[    102.7] ERROR ramp-N     camera frame dropped, exposure retry 62
+[    103.7] INFO  aisle-1    waypoint reached, localization confidence 0.96
+[    106.3] WARN  ramp-S     wheel slip detected, odometry drift 0.72 m corrected
+[    108.0] INFO  aisle-3    lidar scan ok, 37103 points, 2 dynamic obstacles tracked
+[    110.2] INFO  aisle-3    waypoint reached, localization confidence 0.63
+[    112.6] INFO  aisle-2    inspection photo captured, blur score 0.75
+[    114.8] WARN  charge-bay wifi rssi -70 dBm, telemetry buffered 57 messages
+[    117.2] INFO  mezzanine  battery at 81%, cell delta 30 mV, temp 22.9 C
+[    118.3] INFO  aisle-3    waypoint reached, localization confidence 0.97
+[    119.2] INFO  ramp-N     battery at 78%, cell delta 24 mV, temp 30.4 C
+[    120.7] INFO  cold-room  lidar scan ok, 35244 points, 6 dynamic obstacles tracked
+[    123.4] INFO  dock-A     waypoint reached, localization confidence 0.93
+[    124.4] INFO  aisle-3    lidar scan ok, 37712 points, 5 dynamic obstacles tracked
+[    126.3] INFO  ramp-S     battery at 33%, cell delta 11 mV, temp 32.5 C
+[    129.1] ERROR ramp-N     gauge unreadable at ramp-S, glare suspected, flagged for review
+[    132.1] INFO  charge-bay lidar scan ok, 27536 points, 5 dynamic obstacles tracked
+[    133.5] INFO  charge-bay battery at 42%, cell delta 17 mV, temp 34.2 C
+[    135.8] WARN  dock-B     path replanned, clearance 0.55 m below threshold
+[    137.7] INFO  dock-B     lidar scan ok, 35868 points, 6 dynamic obstacles tracked
+[    140.5] WARN  aisle-2    path replanned, clearance 0.08 m below threshold
+[    143.0] INFO  ramp-N     lidar scan ok, 15586 points, 3 dynamic obstacles tracked
+[    144.6] INFO  mezzanine  waypoint reached, localization confidence 0.73
+[    145.4] INFO  ramp-N     lidar scan ok, 25733 points, 5 dynamic obstacles tracked
+[    148.6] INFO  mezzanine  waypoint reached, localization confidence 0.97
+[    150.0] INFO  charge-bay waypoint reached, localization confidence 0.86
+[    152.7] WARN  dock-B     wifi rssi -45 dBm, telemetry buffered 97 messages
+[    155.6] INFO  aisle-1    battery at 92%, cell delta 25 mV, temp 37.8 C
+[    156.6] INFO  ramp-N     inspection photo captured, blur score 0.94
+[    159.2] INFO  dock-B     lidar scan ok, 23785 points, 6 dynamic obstacles tracked
+[    160.9] INFO  ramp-N     battery at 99%, cell delta 25 mV, temp 23.5 C
+[    163.9] INFO  dock-B     waypoint reached, localization confidence 0.58
+[    164.5] WARN  charge-bay wifi rssi -62 dBm, telemetry buffered 84 messages
+[    166.7] WARN  cold-room  wheel slip detected, odometry drift 0.78 m corrected
+[    169.6] INFO  dock-A     battery at 33%, cell delta 31 mV, temp 23.1 C
+[    172.2] INFO  mezzanine  waypoint reached, localization confidence 0.61
+[    172.6] WARN  aisle-2    path replanned, clearance 0.79 m below threshold
+[    174.7] INFO  cold-room  waypoint reached, localization confidence 0.67
+[    176.7] INFO  ramp-S     lidar scan ok, 11841 points, 5 dynamic obstacles tracked
+[    179.0] INFO  cold-room  lidar scan ok, 13816 points, 0 dynamic obstacles tracked
+[    181.4] INFO  aisle-2    lidar scan ok, 28326 points, 3 dynamic obstacles tracked
+[    183.0] WARN  charge-bay wifi rssi -72 dBm, telemetry buffered 48 messages
+[    183.6] WARN  dock-B     path replanned, clearance 0.55 m below threshold
+[    185.2] WARN  aisle-1    wifi rssi -52 dBm, telemetry buffered 65 messages
+[    187.4] INFO  mezzanine  waypoint reached, localization confidence 0.60
+[    189.7] INFO  aisle-1    battery at 41%, cell delta 19 mV, temp 37.2 C
+[    192.5] INFO  ramp-N     battery at 99%, cell delta 3 mV, temp 23.1 C
+[    193.4] INFO  ramp-S     lidar scan ok, 14567 points, 0 dynamic obstacles tracked
+[    195.1] INFO  dock-A     lidar scan ok, 16459 points, 2 dynamic obstacles tracked
+[    196.2] ERROR ramp-S     gauge unreadable at charge-bay, glare suspected, flagged for review
+[    197.0] INFO  dock-B     lidar scan ok, 41785 points, 4 dynamic obstacles tracked
+[    199.9] INFO  dock-B     battery at 32%, cell delta 27 mV, temp 21.5 C
+[    201.5] INFO  dock-B     waypoint reached, localization confidence 0.74
+[    203.3] INFO  aisle-1    waypoint reached, localization confidence 0.77
+[    205.8] INFO  ramp-N     battery at 90%, cell delta 39 mV, temp 31.3 C
+[    208.7] INFO  aisle-3    battery at 74%, cell delta 21 mV, temp 39.3 C
+[    210.4] INFO  dock-A     waypoint reached, localization confidence 0.71
+[    212.0] WARN  dock-B     path replanned, clearance 0.10 m below threshold
+[    213.8] INFO  ramp-N     waypoint reached, localization confidence 0.66
+[    216.1] INFO  aisle-1    waypoint reached, localization confidence 0.83
+[    217.5] INFO  ramp-N     battery at 68%, cell delta 10 mV, temp 34.7 C
+[    220.1] INFO  charge-bay battery at 72%, cell delta 34 mV, temp 29.3 C
+[    221.1] ERROR mezzanine  gauge unreadable at ramp-N, glare suspected, flagged for review
+[    221.8] INFO  aisle-3    lidar scan ok, 19848 points, 5 dynamic obstacles tracked
+[    224.3] INFO  ramp-S     inspection photo captured, blur score 0.65
+[    226.2] INFO  cold-room  lidar scan ok, 22087 points, 6 dynamic obstacles tracked
+[    229.2] INFO  dock-B     inspection photo captured, blur score 0.78
+[    232.2] INFO  aisle-2    waypoint reached, localization confidence 0.75
+[    232.7] WARN  charge-bay wheel slip detected, odometry drift 0.83 m corrected
+[    234.4] INFO  aisle-2    waypoint reached, localization confidence 0.58
+[    235.6] INFO  aisle-1    waypoint reached, localization confidence 0.73
+[    236.8] INFO  cold-room  waypoint reached, localization confidence 0.71
+[    238.8] INFO  mezzanine  lidar scan ok, 34354 points, 2 dynamic obstacles tracked
+[    241.2] INFO  aisle-1    lidar scan ok, 31187 points, 6 dynamic obstacles tracked
+[    241.8] INFO  cold-room  inspection photo captured, blur score 0.75
+[    243.5] INFO  charge-bay waypoint reached, localization confidence 0.83
+[    246.4] INFO  dock-B     lidar scan ok, 41519 points, 5 dynamic obstacles tracked
+[    248.0] ERROR aisle-1    gauge unreadable at ramp-S, glare suspected, flagged for review
+[    250.4] INFO  ramp-N     lidar scan ok, 32105 points, 4 dynamic obstacles tracked
+[    252.2] INFO  ramp-S     inspection photo captured, blur score 0.62
+[    255.3] INFO  ramp-N     waypoint reached, localization confidence 0.62
+[    257.5] INFO  aisle-2    waypoint reached, localization confidence 0.60
+[    260.7] INFO  ramp-N     waypoint reached, localization confidence 0.95
+[    262.9] INFO  aisle-2    inspection photo captured, blur score 0.79
+[    265.6] INFO  cold-room  waypoint reached, localization confidence 0.79
+[    267.1] INFO  mezzanine  lidar scan ok, 17213 points, 2 dynamic obstacles tracked
+[    268.0] ERROR ramp-N     camera frame dropped, exposure retry 120
+[    271.1] INFO  cold-room  lidar scan ok, 14168 points, 2 dynamic obstacles tracked
+[    273.3] INFO  dock-B     battery at 97%, cell delta 40 mV, temp 28.8 C
+[    273.8] INFO  aisle-3    battery at 91%, cell delta 28 mV, temp 35.2 C
+[    275.5] WARN  mezzanine  path replanned, clearance 0.40 m below threshold
+[    276.3] WARN  aisle-3    wifi rssi -73 dBm, telemetry buffered 60 messages
+[    278.0] INFO  mezzanine  waypoint reached, localization confidence 0.57
+[    280.4] INFO  aisle-2    waypoint reached, localization confidence 0.62
+[    282.5] INFO  ramp-S     waypoint reached, localization confidence 0.67
+[    283.9] INFO  mezzanine  lidar scan ok, 21756 points, 2 dynamic obstacles tracked
+[    286.2] INFO  ramp-S     waypoint reached, localization confidence 0.98
+[    288.0] INFO  mezzanine  waypoint reached, localization confidence 0.61
+[    289.3] INFO  charge-bay lidar scan ok, 28610 points, 4 dynamic obstacles tracked
+[    292.0] INFO  mezzanine  lidar scan ok, 36298 points, 4 dynamic obstacles tracked
+[    293.0] INFO  ramp-N     waypoint reached, localization confidence 0.76
+[    294.6] INFO  cold-room  lidar scan ok, 41887 points, 6 dynamic obstacles tracked
+[    295.6] INFO  mezzanine  lidar scan ok, 33695 points, 2 dynamic obstacles tracked
+[    297.3] ERROR ramp-N     camera frame dropped, exposure retry 41
+[    299.3] WARN  aisle-3    wheel slip detected, odometry drift 0.88 m corrected
+[    299.8] ERROR aisle-3    camera frame dropped, exposure retry 120
+[    300.6] INFO  dock-B     battery at 85%, cell delta 16 mV, temp 35.7 C
+[    302.9] INFO  dock-A     waypoint reached, localization confidence 0.97
+[    305.8] INFO  aisle-1    waypoint reached, localization confidence 0.80
+[    308.9] ERROR cold-room  camera frame dropped, exposure retry 37
+[    310.7] WARN  dock-A     wifi rssi -47 dBm, telemetry buffered 33 messages
+[    313.2] INFO  aisle-1    inspection photo captured, blur score 0.80
+[    316.3] INFO  mezzanine  lidar scan ok, 9447 points, 2 dynamic obstacles tracked
+[    316.8] INFO  dock-B     battery at 33%, cell delta 31 mV, temp 28.1 C
+[    319.0] WARN  cold-room  wheel slip detected, odometry drift 0.69 m corrected
+[    321.9] INFO  dock-B     inspection photo captured, blur score 0.90
+[    324.9] INFO  mezzanine  waypoint reached, localization confidence 0.91
+[    326.6] WARN  dock-A     wifi rssi -53 dBm, telemetry buffered 60 messages
+[    328.2] WARN  charge-bay path replanned, clearance 0.51 m below threshold
+[    328.6] INFO  aisle-1    lidar scan ok, 36548 points, 2 dynamic obstacles tracked
+[    330.9] INFO  ramp-S     lidar scan ok, 34759 points, 4 dynamic obstacles tracked
+[    332.8] WARN  mezzanine  path replanned, clearance 0.67 m below threshold
+[    335.3] WARN  aisle-2    wifi rssi -43 dBm, telemetry buffered 112 messages
+[    337.8] INFO  mezzanine  lidar scan ok, 23238 points, 6 dynamic obstacles tracked
+[    339.9] INFO  ramp-S     battery at 84%, cell delta 16 mV, temp 30.5 C
+[    341.8] INFO  cold-room  waypoint reached, localization confidence 0.70
+[    343.5] WARN  ramp-S     path replanned, clearance 0.87 m below threshold
+[    344.6] INFO  mezzanine  waypoint reached, localization confidence 0.83
+[    346.7] WARN  dock-B     wifi rssi -75 dBm, telemetry buffered 120 messages
+[    349.2] INFO  aisle-3    inspection photo captured, blur score 0.95
+[    350.3] INFO  aisle-2    lidar scan ok, 15462 points, 6 dynamic obstacles tracked
+[    352.8] INFO  ramp-N     waypoint reached, localization confidence 0.79
+[    353.9] WARN  dock-A     path replanned, clearance 0.66 m below threshold
+[    355.8] WARN  dock-A     path replanned, clearance 0.59 m below threshold
+[    356.8] INFO  aisle-3    lidar scan ok, 40667 points, 5 dynamic obstacles tracked
+[    358.7] INFO  cold-room  waypoint reached, localization confidence 0.77
+[    359.8] INFO  dock-A     lidar scan ok, 14178 points, 2 dynamic obstacles tracked
+[    360.5] INFO  mezzanine  lidar scan ok, 12677 points, 5 dynamic obstacles tracked
+[    363.6] ERROR cold-room  camera frame dropped, exposure retry 88
+[    365.6] INFO  aisle-3    waypoint reached, localization confidence 0.96
+[    366.4] INFO  cold-room  waypoint reached, localization confidence 0.92
+[    368.9] INFO  dock-A     lidar scan ok, 24213 points, 6 dynamic obstacles tracked
+[    371.1] INFO  mezzanine  inspection photo captured, blur score 0.75
+[    372.3] INFO  aisle-3    waypoint reached, localization confidence 0.58
+[    374.0] INFO  ramp-N     inspection photo captured, blur score 0.59
+[    375.9] INFO  mezzanine  battery at 55%, cell delta 28 mV, temp 29.9 C
+[    377.8] INFO  charge-bay battery at 52%, cell delta 33 mV, temp 24.4 C
+[    380.4] INFO  mezzanine  lidar scan ok, 41492 points, 4 dynamic obstacles tracked
+[    381.8] WARN  ramp-N     wifi rssi -44 dBm, telemetry buffered 26 messages
+[    382.7] INFO  mezzanine  lidar scan ok, 41178 points, 4 dynamic obstacles tracked
+[    383.7] ERROR charge-bay gauge unreadable at ramp-S, glare suspected, flagged for review
+[    384.5] INFO  cold-room  lidar scan ok, 19101 points, 5 dynamic obstacles tracked
+[    386.3] WARN  ramp-N     wheel slip detected, odometry drift 0.83 m corrected
+[    387.2] INFO  cold-room  battery at 60%, cell delta 29 mV, temp 23.4 C
+[    389.2] INFO  ramp-S     battery at 93%, cell delta 34 mV, temp 24.5 C
+[    392.2] INFO  dock-B     waypoint reached, localization confidence 0.92
+[    393.8] INFO  aisle-2    battery at 32%, cell delta 3 mV, temp 40.5 C
+[    395.6] INFO  dock-A     battery at 47%, cell delta 27 mV, temp 35.5 C
+[    398.1] WARN  cold-room  wifi rssi -84 dBm, telemetry buffered 74 messages
+[    399.0] INFO  mezzanine  lidar scan ok, 26193 points, 5 dynamic obstacles tracked
+[    399.8] INFO  dock-B     lidar scan ok, 20306 points, 6 dynamic obstacles tracked
+[    400.7] INFO  cold-room  battery at 35%, cell delta 38 mV, temp 29.8 C
+[    401.5] INFO  cold-room  waypoint reached, localization confidence 0.63
+[    403.4] INFO  dock-A     lidar scan ok, 36238 points, 5 dynamic obstacles tracked
+[    404.5] INFO  ramp-N     lidar scan ok, 38971 points, 4 dynamic obstacles tracked
+[    406.4] INFO  dock-A     inspection photo captured, blur score 0.88
+[    408.1] INFO  ramp-S     lidar scan ok, 37774 points, 6 dynamic obstacles tracked
+[    409.0] INFO  aisle-3    waypoint reached, localization confidence 0.64
+[    410.2] INFO  aisle-2    waypoint reached, localization confidence 0.93
+[    411.0] INFO  dock-B     lidar scan ok, 34736 points, 3 dynamic obstacles tracked
+[    412.5] INFO  ramp-N     inspection photo captured, blur score 0.86
+[    415.3] INFO  aisle-1    inspection photo captured, blur score 0.72
+[    417.3] INFO  dock-A     lidar scan ok, 12172 points, 0 dynamic obstacles tracked
+[    420.5] INFO  aisle-3    lidar scan ok, 17645 points, 5 dynamic obstacles tracked
+[    421.1] INFO  dock-B     battery at 98%, cell delta 21 mV, temp 37.7 C
+[    421.5] INFO  aisle-1    lidar scan ok, 23823 points, 4 dynamic obstacles tracked
+[    423.2] INFO  aisle-1    waypoint reached, localization confidence 0.59
+[    423.8] INFO  aisle-2    battery at 62%, cell delta 15 mV, temp 35.4 C
+[    424.5] INFO  cold-room  waypoint reached, localization confidence 0.88
+[    426.5] INFO  dock-A     inspection photo captured, blur score 0.68
+[    429.1] INFO  aisle-1    inspection photo captured, blur score 0.66
+[    430.6] WARN  dock-A     path replanned, clearance 0.11 m below threshold
+[    433.7] INFO  aisle-1    lidar scan ok, 41836 points, 6 dynamic obstacles tracked
+[    434.9] INFO  aisle-3    lidar scan ok, 22316 points, 6 dynamic obstacles tracked
+[    437.2] INFO  dock-B     inspection photo captured, blur score 0.92
+[    437.6] INFO  aisle-3    waypoint reached, localization confidence 0.55
+[    440.1] INFO  charge-bay waypoint reached, localization confidence 0.95
+[    441.8] INFO  aisle-2    lidar scan ok, 19936 points, 2 dynamic obstacles tracked
+[    444.2] INFO  cold-room  waypoint reached, localization confidence 0.93
+[    446.9] INFO  dock-B     inspection photo captured, blur score 0.84
+[    448.7] WARN  cold-room  wifi rssi -69 dBm, telemetry buffered 42 messages
+[    450.4] INFO  cold-room  lidar scan ok, 28917 points, 5 dynamic obstacles tracked
+[    452.9] INFO  ramp-S     waypoint reached, localization confidence 0.55
+[    455.7] INFO  aisle-2    inspection photo captured, blur score 0.60
+[    458.6] INFO  mezzanine  lidar scan ok, 33411 points, 3 dynamic obstacles tracked
+[    459.2] INFO  aisle-2    battery at 58%, cell delta 27 mV, temp 37.1 C
+[    459.8] INFO  aisle-2    waypoint reached, localization confidence 0.89
+[    461.4] INFO  aisle-2    lidar scan ok, 14925 points, 1 dynamic obstacles tracked
+[    464.6] INFO  aisle-2    lidar scan ok, 28584 points, 2 dynamic obstacles tracked
+[    465.2] INFO  mezzanine  waypoint reached, localization confidence 0.90
+[    467.3] WARN  charge-bay wheel slip detected, odometry drift 0.13 m corrected
+[    467.8] WARN  aisle-3    wheel slip detected, odometry drift 0.20 m corrected
+[    469.0] WARN  ramp-S     wifi rssi -85 dBm, telemetry buffered 12 messages
+[    469.8] INFO  charge-bay waypoint reached, localization confidence 0.94
+[    471.1] INFO  cold-room  battery at 21%, cell delta 22 mV, temp 34.7 C
+[    472.5] INFO  mezzanine  battery at 49%, cell delta 17 mV, temp 27.1 C
+[    475.3] INFO  dock-A     inspection photo captured, blur score 0.71
+[    477.7] INFO  aisle-2    lidar scan ok, 18312 points, 4 dynamic obstacles tracked
+[    479.8] INFO  aisle-1    waypoint reached, localization confidence 0.76
+[    481.8] WARN  ramp-S     wheel slip detected, odometry drift 0.34 m corrected
+[    484.4] ERROR aisle-3    camera frame dropped, exposure retry 49
+[    485.2] INFO  dock-B     inspection photo captured, blur score 0.97
+[    488.2] INFO  charge-bay waypoint reached, localization confidence 0.88
+[    488.6] INFO  charge-bay waypoint reached, localization confidence 0.85
+[    491.5] INFO  ramp-N     lidar scan ok, 40423 points, 6 dynamic obstacles tracked
+[    492.6] INFO  charge-bay waypoint reached, localization confidence 0.70
+[    495.0] INFO  cold-room  lidar scan ok, 37455 points, 1 dynamic obstacles tracked
+[    496.1] INFO  dock-B     waypoint reached, localization confidence 0.65
+[    497.4] INFO  aisle-3    battery at 21%, cell delta 15 mV, temp 24.9 C
+[    500.0] INFO  charge-bay lidar scan ok, 26367 points, 0 dynamic obstacles tracked
+[    500.5] INFO  cold-room  lidar scan ok, 26600 points, 4 dynamic obstacles tracked
+[    502.1] INFO  charge-bay inspection photo captured, blur score 0.65
+[    503.3] INFO  charge-bay lidar scan ok, 11275 points, 4 dynamic obstacles tracked
+[    504.2] ERROR mezzanine  gauge unreadable at aisle-1, glare suspected, flagged for review
+[    505.3] WARN  dock-A     wheel slip detected, odometry drift 0.33 m corrected
+[    507.9] INFO  mezzanine  battery at 71%, cell delta 11 mV, temp 24.4 C
+[    510.5] INFO  aisle-3    inspection photo captured, blur score 0.93
+[    512.0] INFO  ramp-N     battery at 68%, cell delta 23 mV, temp 36.9 C
+[    512.5] WARN  ramp-N     path replanned, clearance 0.24 m below threshold
+[    513.6] INFO  cold-room  lidar scan ok, 21316 points, 3 dynamic obstacles tracked
+[    516.2] INFO  aisle-2    waypoint reached, localization confidence 0.86
+[    516.7] INFO  aisle-2    waypoint reached, localization confidence 0.71
+[    518.2] INFO  aisle-3    battery at 88%, cell delta 24 mV, temp 28.9 C
+[    518.7] INFO  dock-A     waypoint reached, localization confidence 0.93
+[    520.4] INFO  ramp-S     waypoint reached, localization confidence 0.63
+[    523.3] WARN  ramp-N     path replanned, clearance 0.39 m below threshold
+[    525.3] INFO  aisle-2    battery at 26%, cell delta 23 mV, temp 43.7 C
+[    526.1] INFO  ramp-S     inspection photo captured, blur score 0.95
+[    527.6] INFO  aisle-3    waypoint reached, localization confidence 0.86
+[    530.3] WARN  ramp-N     path replanned, clearance 0.27 m below threshold
+[    532.6] INFO  mezzanine  waypoint reached, localization confidence 0.65
+[    534.6] INFO  ramp-N     battery at 33%, cell delta 26 mV, temp 33.2 C
+[    536.1] INFO  dock-A     battery at 58%, cell delta 13 mV, temp 38.9 C
+[    536.5] INFO  ramp-S     waypoint reached, localization confidence 0.88
+[    538.1] ERROR aisle-2    camera frame dropped, exposure retry 107
+[    538.5] INFO  dock-B     waypoint reached, localization confidence 0.87
+[    541.2] INFO  ramp-S     waypoint reached, localization confidence 0.68
+[    541.7] INFO  ramp-S     waypoint reached, localization confidence 0.98
+[    544.5] INFO  charge-bay waypoint reached, localization confidence 0.79
+[    546.0] INFO  mezzanine  lidar scan ok, 19035 points, 1 dynamic obstacles tracked
+[    548.1] INFO  aisle-2    waypoint reached, localization confidence 0.92
+[    550.7] WARN  ramp-N     path replanned, clearance 0.52 m below threshold
+[    551.7] INFO  aisle-3    waypoint reached, localization confidence 0.59
+[    553.9] INFO  ramp-S     lidar scan ok, 26309 points, 3 dynamic obstacles tracked
+[    556.4] INFO  ramp-N     waypoint reached, localization confidence 0.88
+[    559.1] INFO  dock-A     waypoint reached, localization confidence 0.73
+[    562.2] WARN  aisle-1    path replanned, clearance 0.37 m below threshold
+[    564.0] INFO  mezzanine  lidar scan ok, 37880 points, 0 dynamic obstacles tracked
+[    565.0] ERROR mezzanine  camera frame dropped, exposure retry 20
+[    565.6] INFO  dock-A     battery at 81%, cell delta 12 mV, temp 22.7 C
+[    567.4] INFO  dock-B     battery at 76%, cell delta 30 mV, temp 39.4 C
+[    570.5] INFO  cold-room  inspection photo captured, blur score 0.56
+[    572.5] INFO  ramp-N     battery at 24%, cell delta 16 mV, temp 40.4 C
+[    574.9] INFO  ramp-N     waypoint reached, localization confidence 0.88
+[    577.3] INFO  aisle-2    waypoint reached, localization confidence 0.62
+[    579.0] INFO  charge-bay inspection photo captured, blur score 0.87
+[    581.2] ERROR aisle-1    camera frame dropped, exposure retry 62
+[    583.5] INFO  aisle-2    waypoint reached, localization confidence 0.91
+[    584.7] ERROR cold-room  camera frame dropped, exposure retry 66
+[    587.5] INFO  cold-room  inspection photo captured, blur score 0.96
+[    589.4] INFO  aisle-3    battery at 79%, cell delta 39 mV, temp 34.1 C
+[    592.3] INFO  aisle-3    lidar scan ok, 15977 points, 0 dynamic obstacles tracked
+[    594.6] INFO  aisle-2    waypoint reached, localization confidence 0.58
+[    597.1] INFO  dock-A     battery at 24%, cell delta 26 mV, temp 29.9 C
+[    597.5] INFO  aisle-3    waypoint reached, localization confidence 0.82
+[    599.2] ERROR aisle-1    gauge unreadable at aisle-1, glare suspected, flagged for review
+[    601.2] INFO  charge-bay waypoint reached, localization confidence 0.70
+[    603.8] INFO  cold-room  battery at 46%, cell delta 13 mV, temp 33.0 C
+[    605.4] INFO  dock-A     lidar scan ok, 30750 points, 2 dynamic obstacles tracked
+[    606.1] INFO  aisle-3    lidar scan ok, 24979 points, 0 dynamic obstacles tracked
+[    606.5] INFO  aisle-1    lidar scan ok, 38200 points, 3 dynamic obstacles tracked
+[    609.7] INFO  ramp-S     inspection photo captured, blur score 0.78
+[    611.9] WARN  cold-room  wheel slip detected, odometry drift 0.11 m corrected
+[    612.5] WARN  dock-A     path replanned, clearance 0.06 m below threshold
+[    614.7] INFO  dock-B     battery at 27%, cell delta 24 mV, temp 42.3 C
+[    615.9] WARN  aisle-3    wheel slip detected, odometry drift 0.68 m corrected
+[    618.2] WARN  cold-room  wheel slip detected, odometry drift 0.09 m corrected
+[    620.1] INFO  aisle-2    waypoint reached, localization confidence 0.64
+[    620.8] INFO  dock-B     battery at 88%, cell delta 31 mV, temp 35.8 C
+[    621.8] INFO  charge-bay battery at 48%, cell delta 8 mV, temp 27.6 C
+[    623.1] INFO  aisle-2    battery at 90%, cell delta 25 mV, temp 39.6 C
+[    625.7] INFO  ramp-N     inspection photo captured, blur score 0.83
+[    628.3] INFO  dock-B     lidar scan ok, 14372 points, 6 dynamic obstacles tracked
+[    631.1] WARN  charge-bay path replanned, clearance 0.52 m below threshold
+[    633.4] INFO  mezzanine  waypoint reached, localization confidence 0.72
+[    635.7] INFO  ramp-N     inspection photo captured, blur score 0.61
+[    636.2] INFO  charge-bay inspection photo captured, blur score 0.65
+[    639.1] INFO  ramp-S     waypoint reached, localization confidence 0.84
+[    641.3] INFO  charge-bay lidar scan ok, 14101 points, 4 dynamic obstacles tracked
+[    643.9] WARN  aisle-1    wifi rssi -75 dBm, telemetry buffered 20 messages
+[    645.3] INFO  ramp-S     inspection photo captured, blur score 0.60
+[    645.8] INFO  aisle-1    waypoint reached, localization confidence 0.80
+[    647.7] INFO  aisle-1    lidar scan ok, 10220 points, 5 dynamic obstacles tracked
+[    648.7] INFO  dock-B     lidar scan ok, 20919 points, 4 dynamic obstacles tracked
+[    649.7] INFO  mezzanine  lidar scan ok, 22261 points, 4 dynamic obstacles tracked
+[    650.2] INFO  cold-room  inspection photo captured, blur score 0.77
+[    651.8] WARN  dock-B     wifi rssi -40 dBm, telemetry buffered 108 messages
+[    653.4] INFO  mezzanine  waypoint reached, localization confidence 0.89
+[    655.3] INFO  aisle-3    lidar scan ok, 22462 points, 5 dynamic obstacles tracked
+[    658.0] INFO  cold-room  lidar scan ok, 27059 points, 5 dynamic obstacles tracked
+[    660.0] INFO  aisle-1    waypoint reached, localization confidence 0.68
+[    660.7] INFO  ramp-S     lidar scan ok, 12411 points, 1 dynamic obstacles tracked
+[    661.3] INFO  aisle-1    waypoint reached, localization confidence 0.71
+[    663.5] INFO  ramp-N     lidar scan ok, 27743 points, 1 dynamic obstacles tracked
+[    664.6] INFO  dock-B     waypoint reached, localization confidence 0.62
+[    667.6] INFO  aisle-3    lidar scan ok, 31812 points, 2 dynamic obstacles tracked
+[    668.5] INFO  aisle-3    lidar scan ok, 41975 points, 2 dynamic obstacles tracked
+[    670.8] ERROR aisle-3    camera frame dropped, exposure retry 62
+[    671.4] INFO  aisle-2    battery at 58%, cell delta 28 mV, temp 43.0 C
+[    672.6] INFO  aisle-2    lidar scan ok, 31412 points, 0 dynamic obstacles tracked
+[    674.4] INFO  dock-B     waypoint reached, localization confidence 0.87
+[    677.4] INFO  aisle-3    battery at 87%, cell delta 4 mV, temp 40.5 C
+[    679.1] ERROR dock-A     gauge unreadable at cold-room, glare suspected, flagged for review
+[    680.9] INFO  ramp-S     lidar scan ok, 20455 points, 3 dynamic obstacles tracked
+[    683.0] INFO  aisle-1    lidar scan ok, 26019 points, 1 dynamic obstacles tracked
+[    684.8] INFO  dock-B     waypoint reached, localization confidence 0.86
+[    687.2] WARN  cold-room  path replanned, clearance 0.06 m below threshold
+[    689.1] INFO  charge-bay lidar scan ok, 25447 points, 4 dynamic obstacles tracked
+[    691.8] INFO  dock-B     waypoint reached, localization confidence 0.88
+[    693.2] INFO  ramp-S     battery at 54%, cell delta 24 mV, temp 28.5 C
+[    695.3] INFO  ramp-N     lidar scan ok, 19982 points, 5 dynamic obstacles tracked
+[    696.4] INFO  cold-room  lidar scan ok, 26529 points, 4 dynamic obstacles tracked
+[    699.5] INFO  ramp-S     lidar scan ok, 10513 points, 1 dynamic obstacles tracked
+[    700.2] INFO  dock-B     waypoint reached, localization confidence 0.94
+[    702.4] WARN  ramp-N     wifi rssi -78 dBm, telemetry buffered 4 messages
+[    705.2] INFO  charge-bay lidar scan ok, 26852 points, 4 dynamic obstacles tracked
+[    707.4] INFO  aisle-3    battery at 79%, cell delta 36 mV, temp 26.2 C
+[    708.2] INFO  aisle-3    waypoint reached, localization confidence 0.78
+[    708.6] INFO  aisle-2    lidar scan ok, 24152 points, 6 dynamic obstacles tracked
+[    709.5] INFO  aisle-3    inspection photo captured, blur score 0.72
+[    710.7] INFO  aisle-3    inspection photo captured, blur score 0.91
+[    713.0] INFO  dock-A     lidar scan ok, 18971 points, 0 dynamic obstacles tracked
+[    714.1] INFO  aisle-1    waypoint reached, localization confidence 0.77
+[    714.7] INFO  ramp-S     inspection photo captured, blur score 0.58
+[    717.2] INFO  ramp-N     lidar scan ok, 11196 points, 1 dynamic obstacles tracked
+[    718.1] INFO  aisle-2    inspection photo captured, blur score 0.88
+[    720.2] INFO  mezzanine  lidar scan ok, 27094 points, 4 dynamic obstacles tracked
+[    721.1] INFO  ramp-N     inspection photo captured, blur score 0.66
+[    723.3] INFO  aisle-2    inspection photo captured, blur score 0.90
+[    723.7] INFO  aisle-1    lidar scan ok, 25429 points, 0 dynamic obstacles tracked
+[    725.7] INFO  dock-A     lidar scan ok, 19508 points, 0 dynamic obstacles tracked
+[    728.2] INFO  aisle-2    lidar scan ok, 10226 points, 4 dynamic obstacles tracked
+[    730.1] INFO  aisle-1    lidar scan ok, 27555 points, 2 dynamic obstacles tracked
+[    732.9] INFO  dock-A     waypoint reached, localization confidence 0.76
+[    734.4] INFO  ramp-N     battery at 80%, cell delta 7 mV, temp 31.8 C
+[    737.0] INFO  aisle-2    waypoint reached, localization confidence 0.82
+[    738.9] INFO  ramp-N     waypoint reached, localization confidence 0.78
+[    741.2] INFO  charge-bay inspection photo captured, blur score 0.74
+[    744.2] WARN  aisle-2    wifi rssi -42 dBm, telemetry buffered 42 messages
+[    746.2] INFO  dock-A     waypoint reached, localization confidence 0.89
+[    748.0] ERROR cold-room  gauge unreadable at aisle-3, glare suspected, flagged for review
+[    749.8] INFO  aisle-3    battery at 76%, cell delta 24 mV, temp 24.6 C
+[    752.5] INFO  dock-B     waypoint reached, localization confidence 0.73
+[    754.6] INFO  aisle-2    lidar scan ok, 34005 points, 0 dynamic obstacles tracked
+[    757.1] WARN  aisle-2    path replanned, clearance 0.51 m below threshold
+[    757.9] INFO  aisle-1    battery at 94%, cell delta 38 mV, temp 32.6 C
+[    758.7] INFO  charge-bay waypoint reached, localization confidence 0.80
+[    760.6] INFO  dock-B     lidar scan ok, 21851 points, 4 dynamic obstacles tracked
+[    761.4] INFO  charge-bay lidar scan ok, 21483 points, 2 dynamic obstacles tracked
+[    763.5] INFO  aisle-2    lidar scan ok, 24301 points, 1 dynamic obstacles tracked
+[    766.6] WARN  aisle-2    wheel slip detected, odometry drift 0.45 m corrected
+[    767.5] INFO  aisle-1    lidar scan ok, 40655 points, 4 dynamic obstacles tracked
+[    768.1] INFO  dock-B     waypoint reached, localization confidence 0.86
+[    768.5] WARN  aisle-1    wifi rssi -50 dBm, telemetry buffered 69 messages
+[    769.5] ERROR ramp-N     camera frame dropped, exposure retry 21
+[    771.8] INFO  aisle-2    lidar scan ok, 41850 points, 2 dynamic obstacles tracked
+[    772.6] WARN  ramp-S     wifi rssi -48 dBm, telemetry buffered 88 messages
+[    773.7] INFO  aisle-1    waypoint reached, localization confidence 0.98
+[    775.0] INFO  aisle-1    inspection photo captured, blur score 0.78
+[    776.3] WARN  aisle-1    wifi rssi -48 dBm, telemetry buffered 120 messages
+[    778.9] INFO  charge-bay waypoint reached, localization confidence 0.63
+[    779.6] WARN  dock-A     path replanned, clearance 0.19 m below threshold
+[    782.6] ERROR charge-bay camera frame dropped, exposure retry 111
+[    784.9] WARN  mezzanine  wifi rssi -68 dBm, telemetry buffered 51 messages
+[    787.0] INFO  ramp-S     lidar scan ok, 11523 points, 4 dynamic obstacles tracked
+[    790.2] INFO  ramp-S     waypoint reached, localization confidence 0.72
+[    791.4] WARN  cold-room  wheel slip detected, odometry drift 0.48 m corrected
+[    792.2] INFO  dock-B     lidar scan ok, 20722 points, 3 dynamic obstacles tracked
+[    792.8] INFO  aisle-1    inspection photo captured, blur score 0.83
+[    795.8] INFO  aisle-3    battery at 36%, cell delta 13 mV, temp 38.7 C
+[    797.9] INFO  mezzanine  waypoint reached, localization confidence 0.61
+[    800.8] INFO  aisle-3    waypoint reached, localization confidence 0.81
+[    802.9] INFO  mezzanine  battery at 36%, cell delta 5 mV, temp 36.0 C
+[    804.2] WARN  aisle-1    wheel slip detected, odometry drift 0.64 m corrected
+[    807.3] INFO  cold-room  inspection photo captured, blur score 0.71
+[    807.9] INFO  mezzanine  lidar scan ok, 26984 points, 2 dynamic obstacles tracked
+[    810.3] INFO  mezzanine  battery at 95%, cell delta 20 mV, temp 30.8 C
+[    811.7] INFO  charge-bay waypoint reached, localization confidence 0.80
+[    813.8] INFO  aisle-3    waypoint reached, localization confidence 0.92
+[    815.0] INFO  dock-A     waypoint reached, localization confidence 0.68
+[    817.7] INFO  charge-bay waypoint reached, localization confidence 0.92
+[    820.3] INFO  dock-B     lidar scan ok, 28617 points, 4 dynamic obstacles tracked
+[    823.4] INFO  ramp-N     waypoint reached, localization confidence 0.56
+[    825.8] INFO  aisle-2    waypoint reached, localization confidence 0.59
+[    828.7] INFO  aisle-1    lidar scan ok, 40631 points, 4 dynamic obstacles tracked
+[    831.3] INFO  dock-A     waypoint reached, localization confidence 0.98
+[    833.6] INFO  aisle-2    battery at 31%, cell delta 35 mV, temp 38.6 C
+[    834.9] INFO  cold-room  waypoint reached, localization confidence 0.67
+[    836.8] INFO  cold-room  waypoint reached, localization confidence 0.70
+[    838.4] INFO  charge-bay waypoint reached, localization confidence 0.76
+[    840.5] INFO  charge-bay lidar scan ok, 14147 points, 6 dynamic obstacles tracked
+[    841.8] INFO  ramp-N     battery at 46%, cell delta 11 mV, temp 40.8 C
+[    844.4] WARN  mezzanine  wifi rssi -78 dBm, telemetry buffered 37 messages
+[    846.4] INFO  aisle-2    lidar scan ok, 16011 points, 2 dynamic obstacles tracked
+[    848.5] INFO  cold-room  lidar scan ok, 34153 points, 0 dynamic obstacles tracked
+[    850.9] INFO  ramp-S     waypoint reached, localization confidence 0.84
+[    851.5] INFO  aisle-1    waypoint reached, localization confidence 0.91
+[    853.7] INFO  ramp-N     lidar scan ok, 38305 points, 1 dynamic obstacles tracked
+[    856.9] INFO  ramp-N     battery at 34%, cell delta 20 mV, temp 22.4 C
+[    857.6] INFO  cold-room  waypoint reached, localization confidence 0.56
+[    858.6] INFO  dock-A     waypoint reached, localization confidence 0.61
+[    859.2] INFO  mezzanine  waypoint reached, localization confidence 0.87
+[    862.2] INFO  charge-bay battery at 75%, cell delta 26 mV, temp 29.2 C
+[    865.0] INFO  dock-B     waypoint reached, localization confidence 0.77
+[    867.0] ERROR cold-room  camera frame dropped, exposure retry 61
+[    869.6] INFO  ramp-S     lidar scan ok, 31514 points, 4 dynamic obstacles tracked
+[    871.0] ERROR mezzanine  camera frame dropped, exposure retry 81
+[    871.9] INFO  mezzanine  waypoint reached, localization confidence 0.99
+[    873.1] WARN  aisle-3    path replanned, clearance 0.61 m below threshold
+[    875.7] INFO  ramp-S     waypoint reached, localization confidence 0.63
+[    876.8] INFO  charge-bay lidar scan ok, 22818 points, 4 dynamic obstacles tracked
+[    878.3] INFO  charge-bay lidar scan ok, 24313 points, 3 dynamic obstacles tracked
+[    879.7] INFO  ramp-N     lidar scan ok, 11688 points, 0 dynamic obstacles tracked
+[    880.9] WARN  ramp-N     path replanned, clearance 0.49 m below threshold
+[    882.8] INFO  aisle-3    battery at 30%, cell delta 35 mV, temp 23.4 C
+[    883.8] INFO  mezzanine  waypoint reached, localization confidence 0.59
+[    886.4] INFO  ramp-S     waypoint reached, localization confidence 0.60
+[    888.8] INFO  aisle-3    battery at 27%, cell delta 19 mV, temp 38.9 C
+[    889.7] INFO  aisle-2    waypoint reached, localization confidence 0.98
+[    891.8] INFO  aisle-1    waypoint reached, localization confidence 0.74
+[    894.0] INFO  charge-bay waypoint reached, localization confidence 0.57
+[    895.6] WARN  cold-room  path replanned, clearance 0.64 m below threshold
+[    898.6] INFO  aisle-3    lidar scan ok, 35254 points, 0 dynamic obstacles tracked
+[    900.9] INFO  charge-bay waypoint reached, localization confidence 0.57
+[    901.5] INFO  cold-room  battery at 42%, cell delta 3 mV, temp 37.6 C
+[    903.7] INFO  aisle-2    lidar scan ok, 38445 points, 0 dynamic obstacles tracked
+[    906.4] INFO  charge-bay battery at 92%, cell delta 16 mV, temp 42.3 C
+[    909.3] INFO  aisle-1    battery at 40%, cell delta 5 mV, temp 41.8 C
+[    912.0] INFO  ramp-N     waypoint reached, localization confidence 0.91
+[    912.8] INFO  ramp-S     battery at 45%, cell delta 4 mV, temp 34.6 C
+[    913.6] INFO  dock-A     lidar scan ok, 24967 points, 4 dynamic obstacles tracked
+[    916.5] INFO  aisle-2    waypoint reached, localization confidence 0.55
+[    917.3] INFO  ramp-N     waypoint reached, localization confidence 0.75
+[    918.9] INFO  aisle-3    battery at 64%, cell delta 36 mV, temp 32.7 C
+[    919.4] INFO  aisle-2    waypoint reached, localization confidence 0.62
+[    921.0] INFO  dock-B     lidar scan ok, 38697 points, 0 dynamic obstacles tracked
+[    921.6] INFO  ramp-S     waypoint reached, localization confidence 0.75
+[    924.5] INFO  ramp-S     lidar scan ok, 39866 points, 4 dynamic obstacles tracked
+[    925.9] INFO  dock-B     lidar scan ok, 32500 points, 2 dynamic obstacles tracked
+[    928.7] INFO  mezzanine  lidar scan ok, 31516 points, 1 dynamic obstacles tracked
+[    931.8] WARN  aisle-2    path replanned, clearance 0.44 m below threshold
+[    932.9] INFO  dock-A     lidar scan ok, 18762 points, 4 dynamic obstacles tracked
+[    934.5] INFO  aisle-2    lidar scan ok, 15422 points, 3 dynamic obstacles tracked
+[    935.3] INFO  dock-A     waypoint reached, localization confidence 0.83
+[    938.4] INFO  ramp-N     lidar scan ok, 35565 points, 1 dynamic obstacles tracked
+[    940.3] INFO  dock-B     waypoint reached, localization confidence 0.88
+[    941.8] INFO  aisle-2    lidar scan ok, 33014 points, 1 dynamic obstacles tracked
+[    943.7] INFO  dock-A     battery at 46%, cell delta 22 mV, temp 29.1 C
+[    944.3] INFO  aisle-2    lidar scan ok, 17041 points, 3 dynamic obstacles tracked
+[    947.2] INFO  aisle-2    lidar scan ok, 20718 points, 2 dynamic obstacles tracked
+[    949.0] INFO  dock-A     battery at 62%, cell delta 28 mV, temp 31.2 C
+[    951.9] INFO  cold-room  waypoint reached, localization confidence 0.97
+[    953.5] INFO  aisle-3    lidar scan ok, 29086 points, 1 dynamic obstacles tracked
+[    955.2] INFO  charge-bay waypoint reached, localization confidence 0.96
+[    956.3] INFO  dock-B     waypoint reached, localization confidence 0.80
+[    959.3] INFO  charge-bay lidar scan ok, 18527 points, 3 dynamic obstacles tracked
+[    962.2] ERROR aisle-1    camera frame dropped, exposure retry 116
+[    964.5] INFO  aisle-2    waypoint reached, localization confidence 0.56
+[    967.1] INFO  mezzanine  inspection photo captured, blur score 0.64
+[    968.9] INFO  charge-bay waypoint reached, localization confidence 0.84
+[    971.8] INFO  aisle-1    waypoint reached, localization confidence 0.87
+[    974.5] INFO  dock-A     battery at 85%, cell delta 23 mV, temp 22.5 C
+[    976.0] WARN  dock-A     wheel slip detected, odometry drift 0.76 m corrected
+[    978.8] INFO  dock-B     lidar scan ok, 41381 points, 4 dynamic obstacles tracked
+[    981.0] WARN  ramp-N     wifi rssi -57 dBm, telemetry buffered 9 messages
+[    983.0] INFO  dock-A     battery at 33%, cell delta 25 mV, temp 32.8 C
+[    983.8] INFO  aisle-3    lidar scan ok, 32421 points, 1 dynamic obstacles tracked
+[    985.7] WARN  aisle-3    wheel slip detected, odometry drift 0.51 m corrected
+[    988.0] INFO  aisle-1    battery at 36%, cell delta 2 mV, temp 24.1 C
+[    988.7] INFO  ramp-S     waypoint reached, localization confidence 0.65
+[    990.4] INFO  cold-room  waypoint reached, localization confidence 0.91
+[    992.9] INFO  aisle-1    lidar scan ok, 10884 points, 5 dynamic obstacles tracked
+[    993.9] ERROR mezzanine  gauge unreadable at cold-room, glare suspected, flagged for review
+[    994.5] INFO  aisle-1    waypoint reached, localization confidence 0.66
+[    996.8] INFO  cold-room  waypoint reached, localization confidence 0.61
+[    998.8] INFO  dock-B     waypoint reached, localization confidence 0.80
+[   1001.8] WARN  ramp-S     wheel slip detected, odometry drift 0.86 m corrected
+[   1003.3] INFO  cold-room  lidar scan ok, 29596 points, 0 dynamic obstacles tracked
+[   1005.8] INFO  ramp-S     waypoint reached, localization confidence 0.77
+[   1007.0] WARN  ramp-S     path replanned, clearance 0.90 m below threshold
+[   1008.6] INFO  aisle-2    battery at 69%, cell delta 39 mV, temp 43.5 C
+[   1010.0] INFO  ramp-S     battery at 72%, cell delta 33 mV, temp 27.4 C
+[   1011.3] INFO  aisle-2    battery at 53%, cell delta 11 mV, temp 38.7 C
+[   1013.5] INFO  aisle-1    waypoint reached, localization confidence 0.59
+[   1014.8] INFO  ramp-N     battery at 77%, cell delta 14 mV, temp 27.8 C
+[   1017.4] INFO  dock-A     lidar scan ok, 11070 points, 3 dynamic obstacles tracked
+[   1018.3] INFO  charge-bay battery at 73%, cell delta 10 mV, temp 28.2 C
+[   1020.6] INFO  ramp-N     battery at 38%, cell delta 34 mV, temp 22.3 C
+[   1023.1] INFO  ramp-S     waypoint reached, localization confidence 0.58
+[   1023.8] INFO  aisle-3    lidar scan ok, 32020 points, 0 dynamic obstacles tracked
+[   1024.5] INFO  mezzanine  waypoint reached, localization confidence 0.79
+[   1025.0] INFO  ramp-N     lidar scan ok, 30130 points, 4 dynamic obstacles tracked
+[   1025.8] INFO  aisle-3    waypoint reached, localization confidence 0.98
+[   1029.0] INFO  charge-bay lidar scan ok, 15026 points, 5 dynamic obstacles tracked
+[   1030.6] INFO  mezzanine  lidar scan ok, 28781 points, 4 dynamic obstacles tracked
+[   1032.5] INFO  cold-room  battery at 84%, cell delta 13 mV, temp 34.3 C
+[   1035.1] WARN  ramp-S     path replanned, clearance 0.25 m below threshold
+[   1036.7] WARN  aisle-2    wifi rssi -72 dBm, telemetry buffered 88 messages
+[   1038.2] INFO  aisle-2    waypoint reached, localization confidence 0.63
+[   1039.1] INFO  dock-A     waypoint reached, localization confidence 0.66
+[   1041.9] INFO  mezzanine  waypoint reached, localization confidence 0.81
+[   1044.3] WARN  ramp-S     wheel slip detected, odometry drift 0.71 m corrected
+[   1047.0] INFO  dock-A     inspection photo captured, blur score 0.96
+[   1048.8] INFO  ramp-N     lidar scan ok, 29741 points, 4 dynamic obstacles tracked
+[   1051.4] INFO  dock-B     waypoint reached, localization confidence 0.98
+[   1053.3] INFO  aisle-1    waypoint reached, localization confidence 0.74
+[   1056.3] INFO  ramp-N     battery at 22%, cell delta 19 mV, temp 40.9 C
+[   1058.7] WARN  ramp-N     wifi rssi -42 dBm, telemetry buffered 105 messages
+[   1060.4] INFO  dock-B     waypoint reached, localization confidence 0.57
+[   1061.1] INFO  aisle-3    waypoint reached, localization confidence 0.86
+[   1062.0] INFO  aisle-2    battery at 28%, cell delta 28 mV, temp 29.5 C
+[   1062.4] INFO  ramp-S     waypoint reached, localization confidence 0.80
+[   1064.5] INFO  dock-B     waypoint reached, localization confidence 0.97
+[   1065.6] INFO  aisle-2    waypoint reached, localization confidence 0.97
+[   1067.1] INFO  dock-B     lidar scan ok, 28018 points, 2 dynamic obstacles tracked
+[   1067.6] INFO  cold-room  waypoint reached, localization confidence 0.69
+[   1068.1] INFO  ramp-N     lidar scan ok, 32219 points, 4 dynamic obstacles tracked
+[   1068.9] WARN  ramp-N     wifi rssi -59 dBm, telemetry buffered 17 messages
+[   1071.3] INFO  aisle-3    lidar scan ok, 29530 points, 0 dynamic obstacles tracked
+[   1074.2] INFO  cold-room  waypoint reached, localization confidence 0.92
+[   1077.0] INFO  ramp-S     battery at 37%, cell delta 5 mV, temp 26.3 C
+[   1077.7] WARN  dock-B     wifi rssi -42 dBm, telemetry buffered 111 messages
+[   1079.1] INFO  cold-room  waypoint reached, localization confidence 0.68
+[   1081.6] INFO  ramp-S     waypoint reached, localization confidence 0.95
+
+Output ONLY a JSON object, no prose, with exactly these fields: {"total_entries": int, "errors": int, "warnings": int, "battery_min_pct": int, "zones_visited": int, "anomalies": [up to 5 short strings]}.
+
+Here is my Python code:
+
+```python
+import json
+import re
+
+def parse_log(log):
+    errors = 0
+    warnings = 0
+    battery_min_pct = 100
+    zones_visited = 0
+    anomalies = []
+    total_entries = 0
+
+    for line in log.split('\n'):
+        total_entries += 1
+        if re.search(r'ERROR', line):
+            errors += 1
+            match = re.search(r'ERROR (.*)', line)
+            if match:
+                anomalies.append(match.group(1))
+        elif re.search(r'WARN', line):
+            warnings += 1
+        elif re.search(r'battery at (\d+)%', line):
+            battery_pct = int(re.search(r'battery at (\d+)%', line).group(1))
+            if battery_pct < battery_min_pct:
+                battery_min_pct = battery_pct
+        elif re.search(r'way
+
+
+
